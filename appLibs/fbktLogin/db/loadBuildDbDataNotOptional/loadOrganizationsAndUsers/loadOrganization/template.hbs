@@ -1,0 +1,182 @@
+-- ORGANIZATION DATA SET LOADER
+
+SET search_path TO fbkt_login, public;
+
+INSERT INTO organization(
+    name
+    , attributes_json
+)
+SELECT 
+    '{{this.name}}'
+    ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
+WHERE NOT EXISTS (
+    SELECT id FROM organization WHERE name = '{{this.name}}'
+);
+
+{{#if this.location}}
+  WITH organization_location AS (
+  INSERT INTO location(
+  name
+  , geo_json
+  , address_1
+  , address_2
+  , city
+  , county
+  , state
+  , country
+  , postal_code
+  , attributes_json
+  )
+  SELECT
+  {{#if this.location.name}}
+    '{{{escape this.location.name}}}'
+  {{else}}
+    '{{this.name}} location'
+  {{/if}}
+  ,'{{#if this.location.geoJson}}{{{json this.location.geoJson}}}{{else}}{}{{/if}}'
+  ,'{{this.location.address1}}'
+  ,'{{this.location.address2}}'
+  ,'{{this.location.city}}'
+  ,'{{this.location.county}}'
+  ,'{{this.location.state}}'
+  ,'{{this.location.country}}'
+  ,'{{this.location.postalCode}}'
+  ,'{{#if this.location.attributesJson}}{{{json this.location.attributesJson}}}{{else}}{}{{/if}}'
+  RETURNING id
+  )
+  UPDATE organization
+  SET location_id = organization_location.id
+  FROM organization_location
+  WHERE organization.id = (
+  SELECT id
+  FROM organization
+  WHERE name = '{{this.name}}'
+  );
+{{/if}}
+
+{{#each this.contacts}}
+    -- {{firstName}}
+    -- {{../name}}
+    INSERT INTO contact(
+        first_name
+        , last_name
+        , email
+        , phone_number
+        , job_title
+        , attributes_json
+        , inactive
+        , organization_id
+    )
+    SELECT
+        '{{this.firstName}}'
+        ,'{{this.lastName}}'
+        ,'{{this.email}}'
+        ,'{{this.phoneNumber}}'
+        ,'{{this.jobTitle}}'
+        ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
+        ,{{#if this.inactive}}true{{else}}false{{/if}}
+        ,(SELECT id FROM organization WHERE name = '{{../name}}')
+    WHERE NOT EXISTS (SELECT id FROM contact WHERE email = '{{this.email}}')
+    ;
+    
+    {{#if this.location}}
+        WITH contact_location AS (
+            INSERT INTO location(
+                name
+                , geo_json
+                , address_1
+                , address_2
+                , city
+                , county
+                , state
+                , country
+                , postal_code
+                , attributes_json
+            )
+            SELECT
+                {{#if this.location.name}}
+                    '{{{escape this.location.name}}}'
+                {{else}}
+                    '{{this.email}} location'
+                {{/if}}
+                ,'{{#if this.location.geoJson}}{{{json this.location.geoJson}}}{{else}}{}{{/if}}'
+                ,'{{this.location.address1}}'
+                ,'{{this.location.address2}}'
+                ,'{{this.location.city}}'
+                ,'{{this.location.county}}'
+                ,'{{this.location.state}}'
+                ,'{{this.location.country}}'
+                ,'{{this.location.postalCode}}'
+                ,'{{#if this.location.attributesJson}}{{{json this.location.attributesJson}}}{{else}}{}{{/if}}'
+            RETURNING id
+        )
+        UPDATE contact
+        SET location_id = contact_location.id
+        FROM contact_location
+        WHERE contact.id = (
+          SELECT id
+          FROM contact
+          WHERE email = '{{this.email}}'
+        );
+    {{/if}}
+    
+    {{#each this.licenses}}
+        INSERT INTO license_status_type(name)
+        {{#if this.licenseStatus}}
+            SELECT '{{this.licenseStatus}}'
+            WHERE NOT EXISTS (SELECT id FROM license_status_type WHERE name = '{{this.licenseStatus}}');
+        {{else}}
+            SELECT 'ACTIVE'
+            WHERE NOT EXISTS (SELECT id FROM license_status_type WHERE name = 'ACTIVE');
+        {{/if}}
+        
+        INSERT INTO license(
+            organization_id
+            ,contact_id
+            ,license_type_id
+            ,status_type_id
+        )
+        SELECT
+            (SELECT id FROM organization WHERE name = '{{../../name}}')
+            ,(SELECT id FROM contact WHERE email = '{{../email}}')
+            ,(SELECT id FROM license_type WHERE license_type_key = '{{this.licenseType.licenseTypeKey}}')
+        {{#if this.licenseStatus}}
+            ,(SELECT id FROM license_status_type WHERE name = '{{this.licenseStatus}}')
+        {{else}}
+            ,(SELECT id FROM license_status_type WHERE name = 'ACTIVE')
+        {{/if}}
+        WHERE NOT EXISTS (
+            SELECT id
+            FROM license
+            WHERE organization_id = (SELECT id FROM organization WHERE name = '{{../../name}}')
+            AND contact_id = (SELECT id FROM contact WHERE email = '{{../email}}')
+            AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseType.licenseTypeKey}}')
+        );
+        
+    {{/each}}
+
+    INSERT INTO user_login(
+        contact_id
+        ,login
+        ,hashed_password
+    )
+    SELECT
+        (SELECT id FROM contact WHERE email = '{{this.email}}')
+        ,'{{this.email}}'
+    {{#if this.hashedPassword}}
+        ,'{{this.hashedPassword}}'
+    {{else if ../useDefaultPassword}}
+        ,'bPLPJaZKX9KysCIGVVizGgTwyIrEcR1gM2IznOCsiiOVyxxdq0oHk5AMiwrospdyJpOdjBDK97rzzsfH2jVpNw=='
+    {{else}}
+        ,'INVALID'
+    {{/if}}
+    WHERE NOT EXISTS (
+        SELECT id
+        FROM user_login
+        WHERE login = '{{this.email}}'
+    );
+
+
+{{/each}}
+
+SELECT * FROM organization_composite_view WHERE name = '{{this.name}}';

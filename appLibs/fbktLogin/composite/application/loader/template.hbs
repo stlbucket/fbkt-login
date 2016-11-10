@@ -1,0 +1,59 @@
+-- APPLICATION DATA SET LOADER
+
+SET search_path TO fbkt_login, public;
+
+INSERT INTO application(
+    name
+    ,uid
+    ,version
+    ,attributes_json
+)
+SELECT 
+    '{{this.name}}'
+    ,'{{this.uid}}'
+    ,'{{this.version}}'
+    ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
+WHERE NOT EXISTS (
+    SELECT id FROM application WHERE name = '{{this.name}}'
+);
+
+{{#each this.licenseTypes}}
+    INSERT INTO license_type(
+        name
+        ,license_type_key
+        ,application_id
+        ,active
+        ,attributes_json
+    )
+    SELECT
+        '{{this.name}}'
+        ,'{{this.licenseTypeKey}}'
+        ,(SELECT id FROM application WHERE name = '{{../name}}')
+        ,'{{#if this.active}}{{this.active}}{{else}}true{{/if}}'
+        ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
+    WHERE NOT EXISTS (
+        SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}'
+    );
+    
+    {{#each this.promoCodes}}
+        INSERT INTO promo_code(
+            name
+            ,the_promo_code
+            ,license_type_id
+            ,expiration_date
+            ,attributes_json
+        )
+        SELECT
+            '{{this.name}}'
+            ,'{{this.thePromoCode}}'
+            ,(SELECT id FROM license_type WHERE license_type_key = '{{../licenseTypeKey}}')
+            ,{{#if this.expirationDate}}'{{this.expirationDate}}'{{else}}NULL{{/if}}
+            ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
+        WHERE NOT EXISTS (
+            SELECT id FROM promo_code WHERE the_promo_code = '{{this.thePromoCode}}'
+        );
+    {{/each}}
+{{/each}}
+
+
+SELECT * FROM application_composite_view;

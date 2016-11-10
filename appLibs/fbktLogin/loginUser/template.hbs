@@ -1,0 +1,32 @@
+--||--
+SET search_path TO fbkt_login, fbkt_core_db,public;
+--||--
+
+-- CREATE A NEW TOKEN IF ONE DOES NOT EXIST AND CREDENTIALS ARE GOOD
+INSERT INTO login_token(
+    user_login_id
+    ,token
+    ,expiration_date
+)
+SELECT
+    cuv.user_login_id
+    ,uuid_generate_v4()
+    ,current_timestamp + '480 minutes'::interval   --  THIS WILL BE DRIVEN BY A CONFIG VALUE
+FROM
+    customer_user_view cuv
+WHERE cuv.login = '{{this.login}}'
+AND cuv.hashed_password = '{{{this.hashedPassword}}}'
+AND NOT EXISTS(
+    SELECT id
+    FROM user_login_token_view
+    WHERE login = '{{this.login}}'
+    AND expiration_date > current_timestamp
+);
+
+-- RETURN AUTHENTICATED USER IF ONE EXISTS
+SELECT auv.*
+FROM authenticated_user_view auv
+JOIN user_login ul ON ul.id = auv.user_login_id
+WHERE auv.login = '{{this.login}}'
+AND ul.hashed_password = '{{{this.hashedPassword}}}'
+AND auv.expiration_date > current_timestamp;

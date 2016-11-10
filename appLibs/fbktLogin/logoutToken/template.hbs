@@ -1,0 +1,10 @@
+--||--
+SET search_path TO fbkt_login, fbkt_core_db,public;
+--||--
+
+UPDATE login_token
+SET expiration_date = current_timestamp
+WHERE token = '{{this.token}}'
+AND expiration_date >= current_timestamp;
+
+SELECT 'Successfully Logged Out' AS message;
