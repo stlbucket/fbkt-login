@@ -31,7 +31,7 @@ describe(__filename, function () {
 			});
 	});
 
-	it.only('login a user with credentials', (done)=> {
+	it('login a user with credentials', (done)=> {
 		this.timeout(5000);
 		const params = {
 			login:    "functionbucket@gmail.com",

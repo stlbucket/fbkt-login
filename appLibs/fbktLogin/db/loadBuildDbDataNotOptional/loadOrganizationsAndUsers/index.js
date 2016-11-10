@@ -3,7 +3,6 @@ const R = require('ramda');
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 
-const getOrganizationsToLoad = require('./getOrganizationsToLoad');
 const loadOrganization = require('./loadOrganization');
 
 module.exports = (callInfo)=> {
@@ -12,15 +11,13 @@ module.exports = (callInfo)=> {
 		filename:       __filename,
 		expectedParams: {},
 		pipelineParams: {
-			"organizationsToLoad":	"getOrganizationsToLoad",
 			"loadedOrganizations":	"loadOrganizations"
 		},
 		pipelineSteps:  {
-			"getOrganizationsToLoad": getOrganizationsToLoad,
 			"loadOrganizations": (callInfo)=>{
-				fbkt().clog('LOADING ORGANIZATIONS', callInfo.params.organizationsToLoad, true);
+        fbkt().clog('LOAD ORGS', fbkt().config.organizationsAndUsers, true);
 				return Promise.mapSeries(
-					callInfo.params.organizationsToLoad,
+          fbkt().config.organizationsAndUsers,
 					(organization)=>{
 						return loadOrganization({params:	{ organization:	organization}});
 					}

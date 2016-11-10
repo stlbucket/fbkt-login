@@ -7,7 +7,7 @@ const pipeDef = require('./index');
 
 describe(__filename, function () {
 
-	it('fbktLogin build db data', function (done) {
+	it.skip('fbktLogin build db data', function (done) {
 		this.timeout(5000);
 
 		const testId = uuid.v4();

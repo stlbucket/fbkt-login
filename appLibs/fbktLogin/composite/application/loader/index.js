@@ -12,7 +12,7 @@ module.exports = (callInfo)=> {
 		pipelineParams: {},
 		pipelineSteps:  {
 			loadApplication:	(callInfo)=>{
-				const application = fbkt().config.getConfigValue('application', null);
+				const application = fbkt().config.application;
 				if (R.isNil(application)) 
 					throw fbkt().FbktCustomError('FbktApplicationError', "fbktLogin requires config.application to be defined");
 				

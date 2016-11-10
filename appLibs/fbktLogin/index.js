@@ -36,7 +36,7 @@ module.exports = {
     require('./controller/queryView/contactView'),
     require('./controller/queryView/organizationView'),
   ],
-  // loadBuildDbDataNotOptional: require('./db/loadBuildDbDataNotOptional'),
+  loadBuildDbDataNotOptional: require('./db/loadBuildDbDataNotOptional'),
   fbktLoginToken: require('./loginToken'),
   fbktLoginUser: require('./loginUser'),
   logoutToken: require('./logoutToken'),

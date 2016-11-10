@@ -139,7 +139,7 @@ WHERE NOT EXISTS (
         SELECT
             (SELECT id FROM organization WHERE name = '{{../../name}}')
             ,(SELECT id FROM contact WHERE email = '{{../email}}')
-            ,(SELECT id FROM license_type WHERE license_type_key = '{{this.licenseType.licenseTypeKey}}')
+            ,(SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
         {{#if this.licenseStatus}}
             ,(SELECT id FROM license_status_type WHERE name = '{{this.licenseStatus}}')
         {{else}}
@@ -150,7 +150,7 @@ WHERE NOT EXISTS (
             FROM license
             WHERE organization_id = (SELECT id FROM organization WHERE name = '{{../../name}}')
             AND contact_id = (SELECT id FROM contact WHERE email = '{{../email}}')
-            AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseType.licenseTypeKey}}')
+            AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
         );
         
     {{/each}}
@@ -165,7 +165,7 @@ WHERE NOT EXISTS (
         ,'{{this.email}}'
     {{#if this.hashedPassword}}
         ,'{{this.hashedPassword}}'
-    {{else if ../useDefaultPassword}}
+    {{else if this.useDefaultPassword}}
         ,'bPLPJaZKX9KysCIGVVizGgTwyIrEcR1gM2IznOCsiiOVyxxdq0oHk5AMiwrospdyJpOdjBDK97rzzsfH2jVpNw=='
     {{else}}
         ,'INVALID'
