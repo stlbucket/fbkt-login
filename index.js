@@ -1,3 +1,3 @@
 module.exports = {
-	appLibOne:	require('./appLibs/appLibOne')
+	core:	require('./appLibs/fbktLogin')
 };
