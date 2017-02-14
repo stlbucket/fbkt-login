@@ -3,7 +3,7 @@ const R = require('ramda');
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 
-const applicationCompositeLoader = require('../../../composite/application/loader');
+const applicationCompositeLoader = require('./loader');
 
 module.exports = (callInfo)=> {
 	return fbkt().FbktPipe({

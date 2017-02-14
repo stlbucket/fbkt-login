@@ -15,9 +15,9 @@ module.exports = (callInfo)=> {
 		},
 		pipelineSteps:  {
 			"loadOrganizations": (callInfo)=>{
-        fbkt().clog('LOAD ORGS', fbkt().config.organizationsAndUsers, true);
+        fbkt().clog('LOAD ORGS', callInfo.params.organizationsAndUsers, true);
 				return Promise.mapSeries(
-          fbkt().config.organizationsAndUsers,
+          callInfo.params.organizationsAndUsers,
 					(organization)=>{
 						return loadOrganization({params:	{ organization:	organization}});
 					}

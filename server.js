@@ -1,6 +1,6 @@
-let Fbkt = require('fbkt');
-let config = require('./config/dev');
+const Fbkt = require('fbkt');
 const fbktpg = require('fbkt-pg');
+const config = require('./config');
 const appLibs = require('./appLibs');
 
 const serverLibs = {

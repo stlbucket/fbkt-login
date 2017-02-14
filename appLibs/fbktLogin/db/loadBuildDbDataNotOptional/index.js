@@ -3,6 +3,8 @@ const R = require('ramda');
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 
+const defaultApplication = require('./defaultApplication');
+const defaultOrganizationsAndUsers = require('./defaultOrganizationsAndUsers');
 const loadApplication = require('./loadApplication');
 const loadOrganizationsAndUsers = require('./loadOrganizationsAndUsers');
 
@@ -13,8 +15,18 @@ module.exports = (callInfo)=> {
 		expectedParams: {},
 		pipelineParams: {},
 		pipelineSteps:  {
-			loadApplication:						loadApplication,
-			loadOrganizationsAndUsers:	loadOrganizationsAndUsers
+			'loadApplication':	callInfo => {
+        return loadApplication({
+          params: {
+            application:  defaultApplication
+          }
+        });
+      },
+			'loadOrganizationsAndUsers': callInfo => {
+        return loadOrganizationsAndUsers({
+          organizationsAndUsers:  defaultOrganizationsAndUsers
+        })
+      }
 		}
 	}, callInfo || {});
 };

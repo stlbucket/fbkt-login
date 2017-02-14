@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev node devServer",
-    "test": "NODE_ENV=test node devServer -c runAllUnitTests",
-    "buildDb": "NODE_ENV=buildDb node devServer -c buildDb"
+    "start": "node server --NODE_ENV dev",
+    "test": "node server --NODE_ENV test --command runAllUnitTests",
+    "wipeDb": "node server --NODE_ENV buildDb --command wipeDb",
+    "buildDb": "node server --NODE_ENV buildDb --command buildDb"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "dotenv-safe": "^4.0.3",
     "fbkt": "^1.0.31",
     "fbkt-pg": "^1.0.10"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
   }
 }

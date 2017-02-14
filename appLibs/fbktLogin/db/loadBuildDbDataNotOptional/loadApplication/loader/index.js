@@ -12,9 +12,9 @@ module.exports = (callInfo)=> {
 		pipelineParams: {},
 		pipelineSteps:  {
 			loadApplication:	(callInfo)=>{
-				const application = fbkt().config.application;
+				const application = callInfo.params.application;
 				if (R.isNil(application)) 
-					throw fbkt().FbktCustomError('FbktApplicationError', "fbktLogin requires config.application to be defined");
+					throw fbkt().FbktCustomError('FbktApplicationError', "fbktLogin requires application to be defined");
 				
 				return fbkt().loadComposite({
 					params: {
