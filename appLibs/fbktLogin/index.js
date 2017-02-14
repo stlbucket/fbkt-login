@@ -3,6 +3,8 @@ module.exports = {
   libRelativePath: function () {
     return __dirname;
   },
+  application:  require('./db/loadBuildDbDataNotOptional/defaultApplication'),
+  dbOrganizationsAndUsers:  require('./db/loadBuildDbDataNotOptional/defaultOrganizationsAndUsers'),
   schema: 'fbkt_login',
   graphQl: require('./graphQl'),
   dbScripts: [

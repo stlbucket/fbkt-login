@@ -1,3 +1,3 @@
 module.exports = {
-  fkbtLogin: require('./fbktLogin')
+  fbktLogin: require('./fbktLogin')
 };

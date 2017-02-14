@@ -8,7 +8,7 @@ const serverLibs = {
   coreDb:			fbktpg.coreDb,
   dbManager:	fbktpg.dbManager,
   pgRestApi:	fbktpg.pgRestApi,
-  appLibOne:	appLibs.fkbtLogin
+  fbktLogin:	appLibs.fbktLogin
 };
 
 const fbkt = Fbkt(config, serverLibs);

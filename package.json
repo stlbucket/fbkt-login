@@ -13,9 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.1.2",
     "dotenv-safe": "^4.0.3",
     "fbkt": "^1.0.31",
-    "fbkt-pg": "^1.0.10"
+    "fbkt-pg": "^1.0.10",
+    "ramda": "^0.23.0"
   },
   "devDependencies": {
     "chai": "^3.5.0"
