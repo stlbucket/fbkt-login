@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv-safe": "^4.0.3",
     "fbkt": "^1.0.31",
     "fbkt-pg": "^1.0.10"
   }
