@@ -16,6 +16,7 @@ module.exports = {
     `${__dirname}/db/sqlScripts/unlocked/views/contact_view.sql`,
     `${__dirname}/db/sqlScripts/unlocked/views/customer_user_view.sql`,
     `${__dirname}/db/sqlScripts/unlocked/views/user_login_token_view.sql`,
+    `${__dirname}/db/sqlScripts/unlocked/views/user_permission_view.sql`,
 
     // these are new
     `${__dirname}/db/sqlScripts/unlocked/views/authenticated_user_view.sql`,

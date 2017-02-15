@@ -7,7 +7,9 @@ module.exports = {
         name: 'Super Administrator',
         licenseTypeKey: 'SUPER_ADMIN',
         permissions: [
-          'READ_ALL'
+          'READ_ALL',
+          'WRITE_ALL',
+          'MANGE_PERMISSIONS'
         ]
       },
       {

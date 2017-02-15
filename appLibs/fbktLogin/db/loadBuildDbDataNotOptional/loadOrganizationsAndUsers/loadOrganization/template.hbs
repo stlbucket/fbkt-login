@@ -143,46 +143,6 @@ WHERE NOT EXISTS (
       AND contact_id = (SELECT id FROM contact WHERE email = '{{../email}}')
       AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
     );
-
-    INSERT INTO license_permission (
-      license_id,
-      permission_id
-    )
-    SELECT
-    (
-      SELECT id
-      FROM license
-      WHERE organization_id = (SELECT id FROM organization WHERE name = '{{../../name}}')
-      AND contact_id = (SELECT id FROM contact WHERE email = '{{../email}}')
-      AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
-    ),
-    (
-      SELECT permission_id
-      FROM license_type_permission
-      WHERE license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
-    )
-    WHERE NOT EXISTS (
-      SELECT id
-      FROM license_permission
-      WHERE license_id = (
-        SELECT id
-        FROM license
-        WHERE organization_id = (SELECT id FROM organization WHERE name = '{{../../name}}')
-        AND contact_id = (SELECT id FROM contact WHERE email = '{{../email}}')
-        AND license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
-      )
-      AND permission_id = (
-        SELECT permission_id
-        FROM license_type_permission
-        WHERE license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
-      )
-    )
-    AND EXISTS (
-      SELECT permission_id
-      FROM license_type_permission
-      WHERE license_type_id = (SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
-    );
-
   {{/each}}
 
   INSERT INTO user_login(
@@ -209,4 +169,42 @@ WHERE NOT EXISTS (
 
 {{/each}}
 
+INSERT INTO license_permission(
+  license_id,
+  permission_id
+)
+SELECT
+  l.id,
+  ltp.permission_id
+FROM
+  license l
+INNER JOIN license_type lt ON lt.id = l.license_type_id
+INNER JOIN license_type_permission ltp ON ltp.license_type_id = lt.id
+WHERE NOT EXISTS (
+  SELECT id
+  FROM license_permission
+  WHERE license_id = l.id
+  AND permission_id = ltp.permission_id
+);
+
 SELECT * FROM organization_composite_view WHERE name = '{{this.name}}';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
