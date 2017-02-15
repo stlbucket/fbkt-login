@@ -13,9 +13,6 @@ CREATE TABLE application (
 	name 			text  NOT NULL,
 	version			text NOT NULL,
 	require_promo_code_for_registration boolean NOT NULL DEFAULT false,
-	default_new_registration_license_key text NOT NULL DEFAULT 'ADMIN',
-	default_new_user_licenseKey text NOT NULL DEFAULT 'USER',
-	attributes_json 		jsonb NOT NULL DEFAULT '{}',
 	CONSTRAINT 		pk_application PRIMARY KEY ( id )
  );
 --||--

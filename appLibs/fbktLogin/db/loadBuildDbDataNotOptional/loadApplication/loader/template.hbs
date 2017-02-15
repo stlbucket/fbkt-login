@@ -7,18 +7,12 @@ INSERT INTO application(
     ,uid
     ,version
     ,require_promo_code_for_registration
-    ,default_new_registration_license_key
-    ,default_new_user_licenseKey
-    ,attributes_json
 )
 SELECT 
   '{{this.name}}'
   ,'{{this.uid}}'
   ,'{{this.version}}'
   ,{{#if this.requirePromoCodeForRegistration}}{{this.requirePromoCodeForRegistration}}{{else}}false{{/if}}
-  ,'{{#if this.defaultNewRegistrationLicenseKey}}{{this.defaultNewRegistrationLicenseKey}}{{else}}ADMIN{{/if}}'
-  ,'{{#if this.defaultNewUserLicenseKey}}{{this.defaultNewUserLicenseKey}}{{else}}USER{{/if}}'
-  ,'{{#if this.attributesJson}}{{{json this.attributesJson}}}{{else}}{}{{/if}}'
 WHERE NOT EXISTS (
     SELECT id FROM application WHERE name = '{{this.name}}'
 );

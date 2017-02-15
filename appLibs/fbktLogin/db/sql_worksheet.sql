@@ -14,6 +14,6 @@ select * from customer_user_view;
 select * from organization_view;
 select * from contact_view;
 select * from authenticated_user_view;
-
+select * from user_permission_view;
 
 select * from location;
