@@ -21,7 +21,7 @@ module.exports = (callInfo)=> {
 					params: {
             templateFilePath: `${__dirname}/template.hbs`,
             data:             application,
-						executionMode:    'PROD',
+						executionMode:    'REPORTIT',
 						reportFileName:   './ignoreAllThis/applicationCompositeLoaderTemplateOutput.txt'
 					}
 				});

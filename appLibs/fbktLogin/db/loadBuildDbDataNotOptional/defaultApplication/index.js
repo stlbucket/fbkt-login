@@ -4,12 +4,11 @@ module.exports = {
     version: '1.0.0',
     licenseTypes: [
       {
-        name: 'Fbkt Worker',
-        licenseTypeKey: 'WORKER'
-      },
-      {
         name: 'Super Administrator',
-        licenseTypeKey: 'SUPER_ADMIN'
+        licenseTypeKey: 'SUPER_ADMIN',
+        permissions: [
+          'READ_ALL'
+        ]
       },
       {
         name: 'Administrator',
@@ -20,11 +19,8 @@ module.exports = {
             thePromoCode: 'PROMO_ADMIN'
           }
         ],
-        attributesJson: {
-          permissions: [
-            'Admin'
-          ]
-        }
+        permissions: [
+        ]
       },
       {
         name: 'User',
@@ -34,7 +30,14 @@ module.exports = {
             name: 'User Promo Code',
             thePromoCode: 'PROMO_USER'
           }
+        ],
+        permissions: [
         ]
+      },
+      {
+        name: 'Fbkt Worker',
+        licenseTypeKey: 'WORKER',
+        permissions: []
       }
     ],
   };
