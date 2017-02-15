@@ -20,6 +20,7 @@ module.exports = (callInfo)=> {
     },
 		pipelineSteps:  {
       'findApplication':  callInfo => {
+
         const dbApplicationLib = fbkt().config.dbApplicationLib;
         const application = fbkt()._appLibs[dbApplicationLib].application;
 

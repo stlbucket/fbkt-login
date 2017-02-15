@@ -13,10 +13,11 @@ module.exports = (callInfo)=> {
 		pipelineSteps:  {
 			loadApplication:	(callInfo)=>{
 				const application = callInfo.params.application;
-				if (R.isNil(application)) 
+				if (R.isNil(application))
 					throw fbkt().FbktCustomError('FbktApplicationError', "fbktLogin requires application to be defined");
-				
-				return fbkt().loadComposite({
+
+        fbkt().clog('LOADING APPLICATION', application, true);
+        return fbkt().loadComposite({
 					params: {
             templateFilePath: `${__dirname}/template.hbs`,
             data:             application,

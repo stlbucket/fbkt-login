@@ -12,7 +12,7 @@ CREATE VIEW customer_user_view AS
 		,lo.id AS license_organization_id
 		,lo.name as license_organization_name
 		,l.id AS license_id
-		,lst.name AS license_status
+		,l.status AS license_status
 		,l.attributes_json AS license_attributes_json
 		,lt.name AS license_type_name
 		,lt.license_type_key
@@ -25,7 +25,6 @@ CREATE VIEW customer_user_view AS
 	FROM contact c
 	INNER JOIN license l on l.contact_id = c.id
 	INNER JOIN license_type lt on lt.id = l.license_type_id
-	INNER JOIN license_status_type lst on lst.id = l.status_type_id
 	INNER JOIN application a on a.id = lt.application_id
 	INNER JOIN organization o on c.organization_id = o.id
 	INNER JOIN organization lo on l.organization_id = lo.id

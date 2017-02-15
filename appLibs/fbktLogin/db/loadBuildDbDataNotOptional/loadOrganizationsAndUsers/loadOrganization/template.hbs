@@ -121,29 +121,20 @@ WHERE NOT EXISTS (
     {{/if}}
     
     {{#each this.licenses}}
-        INSERT INTO license_status_type(name)
-        {{#if this.licenseStatus}}
-            SELECT '{{this.licenseStatus}}'
-            WHERE NOT EXISTS (SELECT id FROM license_status_type WHERE name = '{{this.licenseStatus}}');
-        {{else}}
-            SELECT 'ACTIVE'
-            WHERE NOT EXISTS (SELECT id FROM license_status_type WHERE name = 'ACTIVE');
-        {{/if}}
-        
         INSERT INTO license(
             organization_id
             ,contact_id
             ,license_type_id
-            ,status_type_id
+            ,status
         )
         SELECT
             (SELECT id FROM organization WHERE name = '{{../../name}}')
             ,(SELECT id FROM contact WHERE email = '{{../email}}')
             ,(SELECT id FROM license_type WHERE license_type_key = '{{this.licenseTypeKey}}')
         {{#if this.licenseStatus}}
-            ,(SELECT id FROM license_status_type WHERE name = '{{this.licenseStatus}}')
+            ,'{{this.licenseStatus}}'
         {{else}}
-            ,(SELECT id FROM license_status_type WHERE name = 'ACTIVE')
+            ,'ACTIVE'
         {{/if}}
         WHERE NOT EXISTS (
             SELECT id

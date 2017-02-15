@@ -9,7 +9,7 @@ module.exports = [
       {
         licenses: [
           {
-            licenseTypeKey: 'FBKT_ADMIN',
+            licenseTypeKey: 'ADMIN',
           }
         ],
         useDefaultPassword: true,
@@ -26,7 +26,7 @@ module.exports = [
       {
         licenses: [
           {
-            licenseTypeKey: 'FBKT_SUPER_ADMIN',
+            licenseTypeKey: 'SUPER_ADMIN',
           }
         ],
         useDefaultPassword: true,
@@ -43,7 +43,7 @@ module.exports = [
       {
         licenses: [
           {
-            licenseTypeKey: 'FBKT_ADMIN',
+            licenseTypeKey: 'ADMIN',
           }
         ],
         useDefaultPassword: true,
@@ -60,7 +60,7 @@ module.exports = [
       {
         licenses: [
           {
-            licenseTypeKey: 'FBKT_USER',
+            licenseTypeKey: 'USER',
           }
         ],
         useDefaultPassword: true,
@@ -77,7 +77,7 @@ module.exports = [
       {
         licenses: [
           {
-            licenseTypeKey: 'FBKT_WORKER',
+            licenseTypeKey: 'WORKER',
           }
         ],
         email: 'functionbucket+noreply@gmail.com',
@@ -87,30 +87,30 @@ module.exports = [
       },
     ]
   },
-  {
-    name: 'Funktion Junktion',
-    location: {
-      name: "Rocco's",
-      geoJson: {type: "Point", coordinates: [-122.345135, 47.614240]}
-    },
-    contacts: [
-      {
-        licenses: [
-          {
-            licenseTypeKey: 'FBKT_USER',
-          }
-        ],
-        useDefaultPassword: true,
-        email: 'functionbucket+funktion_junktion@gmail.com',
-        firstName: 'FUNKTION',
-        lastName: 'JUNKTION',
-        phoneNumber: '',
-        jobTitle: '',
-        location: {
-          name: "Un Bien",
-          geoJson: {type: "Point", coordinates: [-122.406122, 47.675028]}
-        }
-      },
-    ]
-  }
+  // {
+  //   name: 'Funktion Junktion',
+  //   location: {
+  //     name: "Rocco's",
+  //     geoJson: {type: "Point", coordinates: [-122.345135, 47.614240]}
+  //   },
+  //   contacts: [
+  //     {
+  //       licenses: [
+  //         {
+  //           licenseTypeKey: 'USER',
+  //         }
+  //       ],
+  //       useDefaultPassword: true,
+  //       email: 'functionbucket+funktion_junktion@gmail.com',
+  //       firstName: 'FUNKTION',
+  //       lastName: 'JUNKTION',
+  //       phoneNumber: '',
+  //       jobTitle: '',
+  //       location: {
+  //         name: "Un Bien",
+  //         geoJson: {type: "Point", coordinates: [-122.406122, 47.675028]}
+  //       }
+  //     },
+  //   ]
+  // }
 ]

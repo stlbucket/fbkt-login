@@ -16,7 +16,7 @@ CREATE VIEW authenticated_user_view AS
 		,lt.name AS license_type_name
 		,lt.license_type_key
 		,lo.name as license_organization_name
-		,lst.name AS license_status
+		,l.status AS license_status
 		,c.id AS contact_id
 		,ul.id AS user_login_id
 		,a.name AS application_name
@@ -28,7 +28,6 @@ CREATE VIEW authenticated_user_view AS
 	FROM contact c
 	JOIN license l on l.contact_id = c.id
 	JOIN license_type lt on lt.id = l.license_type_id
-	JOIN license_status_type lst on lst.id = l.status_type_id
 	JOIN application a on a.id = lt.application_id
 	JOIN organization o on c.organization_id = o.id
 	JOIN organization lo on l.organization_id = lo.id
@@ -36,6 +35,6 @@ CREATE VIEW authenticated_user_view AS
 	JOIN login_token ult on ult.user_login_id = ul.id
 	WHERE ult.expiration_date > current_timestamp
 	AND ul.hashed_password != 'INVALID'
-	AND lst.name = 'ACTIVE';
+	AND l.status = 'ACTIVE';
 --||--
 SELECT 'SUCCESSFULLY CREATED authenticated_user_view' AS message;
