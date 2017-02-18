@@ -1,6 +1,6 @@
 "use strict";
 const R = require('ramda');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 const fbkt = require('fbkt');
 const should = require('should');
 

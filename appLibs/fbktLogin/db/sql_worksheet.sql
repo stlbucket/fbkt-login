@@ -4,6 +4,7 @@ select * from organization;
 select * from contact;
 select * from location;
 
+select * from application;
 select * from license;
 select * from license_type;
 select * from permission;
