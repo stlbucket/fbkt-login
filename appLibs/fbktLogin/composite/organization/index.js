@@ -21,12 +21,6 @@ module.exports = {
 							, schemaName:  'fbkt_login'
 							, tableName:   'license_type'
 							, fkField:     'license_type_id'
-						},
-						{
-							componentType: 'DEPENDENCY'
-							, schemaName:  'fbkt_login'
-							, tableName:   'license_status_type'
-							, fkField:     'status_type_id'
 						}
 					]
 				}

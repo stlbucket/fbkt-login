@@ -28,7 +28,7 @@ module.exports = {
     require('./composite/application'),
     require('./composite/organization'),
     require('./composite/contact'),
-    require('./composite/facility')
+    // require('./composite/facility')
   ],
   customRestControllers: [
     require('./controller/customRest/loginUser'),

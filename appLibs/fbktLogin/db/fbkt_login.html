@@ -1,0 +1,1568 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml' >
+<head>
+<title>fbkt&#95;login</title>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+<style type='text/css'>
+body {
+    font-family: 'Segoe UI', 'Lucida sans', Dialog;
+    font-size: 13px;
+    color: #444;
+    margin: 10px;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    caption-side: top;
+    width: auto;
+    margin: 10px 15px 5px 0;
+}
+
+
+.bordered td, .bordered th {
+   background-color: #fafafa;
+   border: 1px solid #D5D5D5;
+   padding: 3px 3px 3px 3px;
+   white-space:pre-wrap!important;
+}
+
+.bordered th {
+    background-color: #f0f0f0;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    padding: 3px 3px 3px 3px;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    color: #333333;
+}
+
+.section-header h2 {
+    background-color: #f0f0f0;
+    font-size: 16px;
+    font-weight: normal;
+    border-top: solid 1px #D5D5D5;
+    border-bottom: solid 1px #D5D5D5;
+    width: 95%;
+    margin: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
+    color: #4d82b8;
+}
+.section-header div {
+    font-size: 70%;
+    padding-left: 5px;
+}
+
+
+a, a:visited, a:hover, a:active {
+  color: #044282;
+  text-decoration: none;
+}
+
+th > a {
+    color:#858585;
+}
+
+.lg {
+    font-size: 110%;
+}
+
+h1 {
+    font-family: Verdana,Arial,Helvetica;
+    font-weight: normal;
+    color: #4d82b8;
+    margin: 20px 0 10px 0;
+}
+
+</style>
+</head>
+
+<body>
+<div class='svg-container'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' text-rendering='optimizeLegibility'   width='1120' height='1102' viewbox='0 0 1120 1102' >
+  <script type='text/ecmascript'>
+  <![CDATA[
+  function hghl(el) { for ( var i in el ){ document.getElementById(el[i]).setAttribute('class','highlight');  }  }
+  function uhghl(el) { for ( var i in el ){ document.getElementById(el[i]).setAttribute('class','scene'); }  } 
+  ]]>
+  </script> 
+
+<style type='text/css'>
+  text                { fill:#000000; font-family: Trebuchet MS, 'Trebuchet MS', Dialog; font-size:12px; }
+  a text:hover        { text-shadow: 0 0 6px #d0ce00; }
+  text.highlight      { text-shadow: 0 0 4px #eac533; }
+  text.colType        { fill:#b3b3b3; }
+  text.relName        { fill:#b09c7c; }
+  path                { stroke:#5c554f; stroke-width:1.15; fill:none; }
+  path.virtual        { stroke:#b7642d; }
+  path.dotted         { stroke-dasharray:4,2; }
+  path.scene          { stroke-width:10; opacity:0;}
+  path.highlight      { stroke-width:5; stroke:#eac533; opacity:0.6;}
+  rect.table          { fill:#ffffff; stroke:#aaa; stroke-width:1;shape-rendering:crispEdges;filter:url(#shadow); }
+  line.delim          { stroke-width:1; shape-rendering:crispEdges; }
+  text.callout        { fill:#000000; font-family: Trebuchet MS, 'Trebuchet MS', Dialog; font-size:12px; }
+  rect.callout        { fill:url(#calloutGradient); stroke:#bebdbd; stroke-width:0.5; filter: url(#shadow);}
+  rect.grp            { stroke:#b1b1b1; stroke-width:1.7; opacity:0.8; }
+</style>
+<defs>
+  <pattern id='layoutBgA' patternUnits='userSpaceOnUse'  width='10' height='20' x='0' y='0' viewBox='0 0 5 10'>  
+     <line x1='-2' y1='1' x2='7' y2='10' stroke='#efefef' stroke-width='.5'/>  
+     <line x1='-2' y1='6' x2='7' y2='15' stroke='#efefef' stroke-width='.5'/>  
+     <line x1='-2' y1='-4' x2='7' y2='5' stroke='#efefef' stroke-width='.5'/>  
+  </pattern>  
+  <radialGradient id='layoutBgB' gradientUnits='userSpaceOnUse' cx='50%' cy='50%' r='75%' fx='46%' fy='22%'>
+     <stop offset='0%' stop-opacity='.2' stop-color='#f5f5f5' />  
+     <stop offset='100%' stop-color='#efefef' />  
+  </radialGradient>
+  <pattern id='layoutBgTr' patternUnits='userSpaceOnUse'  width='300' height='300' x='0' y='0' viewBox='0 0 300 300'>  
+    <text x='-85' y='200' transform='rotate(-45)' style='font-family:Arial;font-size:78px;font-weight:bold;fill:#e7e7e7;'>&#84;&#82;&#73;&#65;&#76;</text> 
+    <text x='-130' y='230' transform='rotate(-45)' style='font-family:Arial;font-size:24px;font-weight:bold;fill:#e7e7e7;'>&#77;ove &#116;he m&#111;use &#111;ver &#116;ables</text> 
+    <text x='-85' y='250' transform='rotate(-45)' style='font-family:Arial;font-size:24px;font-weight:bold;fill:#e7e7e7;'>&#116;o re&#97;d &#116;he c&#111;mmen&#116;s</text> 
+  </pattern>  
+  <linearGradient id='groupUnderTitleLine' x1='0%' y1='0%' x2='100%' y2='0%' >
+          <stop offset='0%' stop-color='#999999' stop-opacity='0.7'/> 
+          <stop offset='100%' stop-color='#999999' stop-opacity='0' /> 
+   </linearGradient>
+  <radialGradient id='calloutGradient' cx='25%' cy='20%' r='80%' fx='10%' fy='10%'>
+	   <stop offset='0%' stop-color='#ffffff' />
+    <stop offset='100%' stop-color='#f8f6d1' />
+  </radialGradient>
+  <filter id='shadow' width='120%' height='120%'> 
+      <feOffset result='offOut' in='SourceGraphic' dx='1' dy='1' /> 
+      <feColorMatrix result='matrixOut' in='offOut' type='matrix' 
+      values='0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.3 0' /> 
+      <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='3' /> 
+      <feBlend in='SourceGraphic' in2='blurOut' mode='normal' /> 
+    </filter> 
+  <filter id='fkShadow' height='130%'> 
+    <feGaussianBlur in='SourceAlpha' stdDeviation='1.5'/> <!-- stdDeviation is how much to blur -->
+    <feOffset dx='1.2' dy='1.2' result='offsetblur'/> <!-- how much to offset -->
+    <feMerge>
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in='SourceGraphic'/> <!-- this contains the element that the filter is applied to -->
+    </feMerge>
+  </filter>
+  <radialGradient id='legendGradient' fx='5%' fy='5%' r='75%' spreadMethod='pad'>
+          <stop offset='0%' stop-color='#eefbf2' stop-opacity='1'/> 
+          <stop offset='100%' stop-color='#cff9cb' stop-opacity='1' /> 
+   </radialGradient>
+  <symbol id='calloutArrowDown' overflow='visible' >
+      <path d='M 0,0 L 8,12 L 16,0 z' style='fill:#f8f6d1;stroke:none; filter: url(#shadow);' />
+      <path d='M 0,0 L 8,12 L 16,0' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='calloutArrowUp' overflow='visible' >
+      <path d='M 0,16 L 8,4 L 16,16 z' style='fill:#ffffff; stroke:none; filter: url(#shadow);' />
+      <path d='M 0,16 L 8,4 L 16,16' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='pk' overflow='visible' >
+    <g transform='scale(0.99)'>
+     <path style='fill:#fffa7d;stroke:#765f03;stroke-width:0.6;stroke-linecap:round;stroke-linejoin:round;'
+        d='M 9.3678877,3.5695485 C 9.1030218,3.2729386 9.0796382,2.7628519 9.3396185,2.4517097 9.5449651,2.1956495 9.9040386,2.0980533 10.199638,2.2169415 10.533525,2.3415459 10.775153,2.706942 10.750675,3.0842709 10.737029,3.3980003 10.541153,3.699122 10.258248,3.8066067 9.966649,3.9250429 9.6169668,3.8418805 9.4008073,3.6062324 9.3894892,3.5943518 9.3785264,3.582104 9.3678886,3.5695487 z M 11.226617,6.9916004 C 11.888137,6.3548946 12.293488,5.4172188 12.311087,4.442353 12.378144,2.7379364 11.248678,1.0541269 9.7322318,0.44767357 8.3887112,-0.1280313 6.7865012,0.26822889 5.8918395,1.4007929 5.080823,2.3839145 4.9336815,3.8452096 5.3635544,5.101615 L 4.3670905,5.315913 C 4.0664984,5.3682645 4.0967703,5.6316724 4.2574957,5.8208829 L 4.9124,6.5655244 4.1543436,7.2512357 3.2136002,7.2163506 3.1674775,8.5586827 2.0406832,8.5086512 1.5965306,8.9299953 1.5471661,10.179833 0.75616674,10.195223 0.2112857,10.758575 0.15354288,11.735988 0.07199052,12.765553 c 0.36440953,0.238225 0.79006967,0.195492 1.44938278,-0.02675 L 6.3033562,8.1282037 6.8217102,8.6765688 C 6.9985465,8.8799427 7.3003699,8.7497574 7.358381,8.5016252 L 7.4938877,7.5084164 c 0.8537488,0.3985387 1.8303125,0.4711541 2.6851793,0.1427713 0.393927,-0.1407258 0.746858,-0.3701772 1.04755,-0.6595873 z'/>
+     <path d='M 6.8014948,6.3102123 0.15369063,13.024481 0.21560535,12.141962 6.0062342,6.2683782 z'
+        style='fill:#ffe5a5;fill-opacity:1;stroke:#854e31;stroke-width:0.06912433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:3.00300009'/>
+    </g>
+  </symbol>
+  <symbol id='unq' overflow='visible' >
+    <g transform='scale(0.99)'>
+      <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+         width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+      <path style='fill:white;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+         d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+         transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+      <text x='5.8' y='7.4' style='font-size:7px;fill:#8a8a8a;'>1</text>
+    </g>
+  </symbol>
+  <symbol id='idx' overflow='visible' >
+    <g transform='scale(0.99)'>
+      <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+         width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+      <path style='fill:white;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+         d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+         transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+    </g>
+  </symbol>
+  <symbol id='fk' overflow='visible' >
+    <g transform='scale(0.87)'>
+      <path style='fill:#f3e1b7;stroke:#7e471f;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+      d='M 12.48,0.33 7.07,0.89 9.067,2.974 0.329,11.731 1.073,12.597 9.811,3.841 11.77,5.78 z' />
+    </g>
+  </symbol>
+  <symbol id='ref' overflow='visible' >
+    <g transform='scale(0.87)'>
+      <path style='fill:#f3e1b7;stroke:#7e471f;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.10,12.70 5.31,12.15 3.40,10.06 11.82,1.32 11.11,0.45 2.68,9.19 0.80,7.24 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag0' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#b7d0f6;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag1' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#f4a393;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag2' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#77ec8b;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='nn' overflow='visible' >
+  <path style='stroke:#9b3e50;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0,0 3,3 M 0,3 3,0 z'/>
+  </symbol>
+  <symbol id='view' overflow='visible' >
+    <g transform='scale(0.99)'>
+     <line x1='12' y1='6' x2='19' y2='0' stroke='black' stroke-width='0.5' />
+     <line x1='0' y1='6' x2='7' y2='0' stroke='black' stroke-width='0.5' />
+     <circle cx='3' cy='6' r='3' fill='#f9ebbc' stroke='black' stroke-width='0.5'/>
+     <circle cx='10' cy='6' r='3' fill='#f9ebbc' stroke='black' stroke-width='0.5'/>
+    </g>
+  </symbol>
+  <marker id='arrow01' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='arrow1' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='foot01' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <circle cx='12.00' cy='4.00' r='2.67' style='fill:white;stroke:#5e554d;' />
+    <path d='M 4.00,0.00 L 4.00, 8.00 z' />
+  </marker>
+  <marker id='foot0p' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <circle cx='12.00' cy='4.00' r='2.67' style='fill:white;stroke:#5e554d;' />
+    <path d='M 0.00,0.00 L 8.00,4.00 L 0.00,8.00' />
+  </marker>
+  <marker id='foot1' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <path d='M 8.00,0.00 L 8.00, 8.00 z' />
+    <path d='M 4.00,0.00 L 4.00, 8.00 z' />
+  </marker>
+  <marker id='foot1p' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerUnits='strokeWidth' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <path d='M 8.00,0.00 L 8.00, 8.00 z' />
+    <path d='M 0.00,0.00 L 8.00,4.00 L 0.00,8.00' />
+  </marker>
+  <linearGradient id='tbg_bfd4f5' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#bcd1f1' /> 
+     <stop offset='100%' stop-color='#bcd1f1' /> 
+  </linearGradient>
+  <linearGradient id='tbg_bfbff5' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#bcbcf1' /> 
+     <stop offset='100%' stop-color='#bcbcf1' /> 
+  </linearGradient>
+  <linearGradient id='tbg_f5ddbf' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#f1d9bc' /> 
+     <stop offset='100%' stop-color='#f1d9bc' /> 
+  </linearGradient>
+  <linearGradient id='tbg_c8f5bf' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#c5f1bc' /> 
+     <stop offset='100%' stop-color='#c5f1bc' /> 
+  </linearGradient>
+  <linearGradient id='tbg_bcd5f1' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#bcd5f1' /> 
+     <stop offset='100%' stop-color='#bcd5f1' /> 
+  </linearGradient>
+</defs>
+
+<!-- ============= Desktop ============= -->
+<rect x='1' y='1' width='1118' height='1100' rx='8' ry='8' style='fill:url(#layoutBgB); stroke:#333333; stroke-width:0.5;' />
+<rect x='1' y='1' width='1118' height='1100' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#333333; stroke-width:0.5;' />
+
+<!-- ============= Legend ============= -->
+<g transform='translate(10,10)'>
+  <rect x='10' y='10' width='270' height='52' rx='6' ry='6' style='fill:url(#legendGradient);filter:url(#shadow);'/> 
+  <text x='65' y='33'>fbkt_login</text> 
+  <text x='65' y='49' style='fill:#aaaaaa; font-size:11px;'><tspan>Schema comments as mouse-over tooltips.</tspan></text> 
+<g transform="scale(0.75,0.75) translate(10,7)" > <a xlink:href='http://www.dbschema.com'> <rect style="fill:#eb7f2c;stroke:none;shape-rendering:geometricPrecision;" width="13.27" height="11.26" x="40.04" y="59.44" ry="3.14" transform="matrix(0.90187511,-0.43199686,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.27" height="11.26" x="54.83" y="59.57" ry="3.14" transform="matrix(0.90187511,-0.43199686,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.27" height="11.26" x="40.35" y="71.62" ry="3.14" transform="matrix(0.90187511,-0.43199686,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.27" height="11.26" x="54.68" y="71.75" ry="3.14" transform="matrix(0.90187511,-0.43199686,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.35" height="11.20" x="13.48" y="19.67" ry="3.12" transform="matrix(0.84723158,0.53122372,0,1,0,0)" /> <rect style="fill:#eb7f2c;stroke:none;shape-rendering:geometricPrecision;" width="13.35" height="11.20" x="28.36" y="19.80" ry="3.12" transform="matrix(0.84723158,0.53122372,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.35" height="11.20" x="13.79" y="31.78" ry="3.12" transform="matrix(0.84723158,0.53122372,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.35" height="11.20" x="28.21" y="31.92" ry="3.12" transform="matrix(0.84723158,0.53122372,0,1,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.49" height="14.24" x="34.59" y="-9.62" ry="3.97" transform="matrix(0.85815392,0.51339249,-0.91732703,0.39813455,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.49" height="14.24" x="49.63" y="-9.46" ry="3.97" transform="matrix(0.85815392,0.51339249,-0.91732703,0.39813455,0,0)" /> <rect style="fill:#2c49eb;stroke:none;shape-rendering:geometricPrecision;" width="13.49" height="14.24" x="34.90" y="5.77"  ry="3.97" transform="matrix(0.85815392,0.51339249,-0.91732703,0.39813455,0,0)" /> <rect style="fill:#eb7f2c;stroke:none;shape-rendering:geometricPrecision;" width="13.49" height="14.24" x="49.47" y="5.93"  ry="3.97" transform="matrix(0.85815392,0.51339249,-0.91732703,0.39813455,0,0)" /> <title>Generated using DbSchema - www.dbschema.com</title> </a></g>
+</g>
+
+<g transform='translate(0,110)'>
+<!-- ============= Fk 'license_type_fk_license_type_application' ============= -->
+<path id='license_type_fk_license_type_application'  onmouseover="hghl(['license_type_fk_license_type_application','fbkt_login.license_type.application_id','fbkt_login.application.id'])" onmouseout="uhghl(['license_type_fk_license_type_application','fbkt_login.license_type.application_id','fbkt_login.application.id'])" transform='translate(8,0)' class='scene' d='M 224 672 L 248,672 Q 256,672 256,680 L 256,760 Q 256,768 264,768 L 272,768' >
+	<title>Fk fk_license_type_application
+license_type ref application ( application_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 224 672 L 248,672 Q 256,672 256,680 L 256,760 Q 256,768 264,768 L 272,768' ></path>
+<text x='233' y='667' transform='rotate(0 233,667)' title='Fk fk_license_type_application
+license_type ref application ( application_id -&gt; id )' class='relName'>application_id</text>
+<!-- ============= Fk 'organization_reference_fk_organization_reference_referenced_organization' ============= -->
+<path id='organization_reference_fk_organization_reference_referenced_organization'  onmouseover="hghl(['organization_reference_fk_organization_reference_referenced_organization','fbkt_login.organization_reference.referenced_organization_id','fbkt_login.organization.id'])" onmouseout="uhghl(['organization_reference_fk_organization_reference_referenced_organization','fbkt_login.organization_reference.referenced_organization_id','fbkt_login.organization.id'])" transform='translate(8,0)' class='scene' d='M 864 64 L 816,64' >
+	<title>Fk fk_organization_reference_referenced_organization
+organization_reference ref organization ( referenced_organization_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 864 64 L 816,64' ></path>
+<text x='717' y='59' transform='rotate(0 717,59)' title='Fk fk_organization_reference_referenced_organization
+organization_reference ref organization ( referenced_organization_id -&gt; id )' class='relName'>referenced_organization_id</text>
+<!-- ============= Fk 'organization_reference_fk_organization_reference_referencing_organization' ============= -->
+<path id='organization_reference_fk_organization_reference_referencing_organization'  onmouseover="hghl(['organization_reference_fk_organization_reference_referencing_organization','fbkt_login.organization_reference.referencing_organization_id','fbkt_login.organization.id'])" onmouseout="uhghl(['organization_reference_fk_organization_reference_referencing_organization','fbkt_login.organization_reference.referencing_organization_id','fbkt_login.organization.id'])" transform='translate(8,0)' class='scene' d='M 864 80 L 816,80' >
+	<title>Fk fk_organization_reference_referencing_organization
+organization_reference ref organization ( referencing_organization_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 864 80 L 816,80' ></path>
+<text x='715' y='75' transform='rotate(0 715,75)' title='Fk fk_organization_reference_referencing_organization
+organization_reference ref organization ( referencing_organization_id -&gt; id )' class='relName'>referencing_organization_id</text>
+<!-- ============= Fk 'promo_code_fk_promo_code_license_type' ============= -->
+<path id='promo_code_fk_promo_code_license_type'  onmouseover="hghl(['promo_code_fk_promo_code_license_type','fbkt_login.promo_code.license_type_id','fbkt_login.license_type.id'])" onmouseout="uhghl(['promo_code_fk_promo_code_license_type','fbkt_login.promo_code.license_type_id','fbkt_login.license_type.id'])" transform='translate(8,0)' class='scene' d='M 272 576 L 224,576' >
+	<title>Fk fk_promo_code_license_type
+promo_code ref license_type ( license_type_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 272 576 L 224,576' ></path>
+<text x='189' y='571' transform='rotate(0 189,571)' title='Fk fk_promo_code_license_type
+promo_code ref license_type ( license_type_id -&gt; id )' class='relName'>license_type_id</text>
+<!-- ============= Fk 'user_login_fk_user_login_contact' ============= -->
+<path id='user_login_fk_user_login_contact'  onmouseover="hghl(['user_login_fk_user_login_contact','fbkt_login.user_login.contact_id','fbkt_login.contact.id'])" onmouseout="uhghl(['user_login_fk_user_login_contact','fbkt_login.user_login.contact_id','fbkt_login.contact.id'])" transform='translate(8,0)' class='scene' d='M 864 576 L 816,576' >
+	<title>Fk fk_user_login_contact
+user_login ref contact ( contact_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 864 576 L 816,576' ></path>
+<text x='810' y='571' transform='rotate(0 810,571)' title='Fk fk_user_login_contact
+user_login ref contact ( contact_id -&gt; id )' class='relName'>contact_id</text>
+<!-- ============= Fk 'license_fk_license_contact' ============= -->
+<path id='license_fk_license_contact'  onmouseover="hghl(['license_fk_license_contact','fbkt_login.license.contact_id','fbkt_login.contact.id'])" onmouseout="uhghl(['license_fk_license_contact','fbkt_login.license.contact_id','fbkt_login.contact.id'])" transform='translate(8,0)' class='scene' d='M 400 192 L 696,192 Q 704,192 704,200 L 704,544' >
+	<title>Fk fk_license_contact
+license ref contact ( contact_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 400 192 L 696,192 Q 704,192 704,200 L 704,544' ></path>
+<text x='409' y='187' transform='rotate(0 409,187)' title='Fk fk_license_contact
+license ref contact ( contact_id -&gt; id )' class='relName'>contact_id</text>
+<!-- ============= Fk 'license_fk_license_status_type' ============= -->
+<path id='license_fk_license_status_type'  onmouseover="hghl(['license_fk_license_status_type'])" onmouseout="uhghl(['license_fk_license_status_type'])" transform='translate(8,0)' class='scene' d='M 256 208 L 200,208 Q 192,208 192,216 L 192,280 Q 192,288 184,288 L 160,288' >
+	<title>Fk fk_license_status_type
+license ref permission (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 256 208 L 200,208 Q 192,208 192,216 L 192,280 Q 192,288 184,288 L 160,288' ></path>
+<text x='259' y='203' transform='rotate(0 259,203)' title='Fk fk_license_status_type
+license ref permission (  )' class='relName'></text>
+<!-- ============= Fk 'license_fk_license_type' ============= -->
+<path id='license_fk_license_type'  onmouseover="hghl(['license_fk_license_type','fbkt_login.license.license_type_id','fbkt_login.license_type.id'])" onmouseout="uhghl(['license_fk_license_type','fbkt_login.license.license_type_id','fbkt_login.license_type.id'])" transform='translate(8,0)' class='scene' d='M 256 192 L 216,192 Q 208,192 208,200 L 208,544' >
+	<title>Fk fk_license_type
+license ref license_type ( license_type_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 256 192 L 216,192 Q 208,192 208,200 L 208,544' ></path>
+<text x='173' y='187' transform='rotate(0 173,187)' title='Fk fk_license_type
+license ref license_type ( license_type_id -&gt; id )' class='relName'>license_type_id</text>
+<!-- ============= Fk 'license_fk_license_organization' ============= -->
+<path id='license_fk_license_organization'  onmouseover="hghl(['license_fk_license_organization','fbkt_login.license.organization_id','fbkt_login.organization.id'])" onmouseout="uhghl(['license_fk_license_organization','fbkt_login.license.organization_id','fbkt_login.organization.id'])" transform='translate(8,0)' class='scene' d='M 400 64 L 672,64' >
+	<title>Fk fk_license_organization
+license ref organization ( organization_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 400 64 L 672,64' ></path>
+<text x='409' y='59' transform='rotate(0 409,59)' title='Fk fk_license_organization
+license ref organization ( organization_id -&gt; id )' class='relName'>organization_id</text>
+<!-- ============= Fk 'license_fk_license_promo_code' ============= -->
+<path id='license_fk_license_promo_code'  onmouseover="hghl(['license_fk_license_promo_code','fbkt_login.license.promo_code_id','fbkt_login.promo_code.id'])" onmouseout="uhghl(['license_fk_license_promo_code','fbkt_login.license.promo_code_id','fbkt_login.promo_code.id'])" transform='translate(8,0)' class='scene' d='M 400 224 L 424,224 Q 432,224 432,232 L 432,568 Q 432,576 424,576 L 416,576' >
+	<title>Fk fk_license_promo_code
+license ref promo_code ( promo_code_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 400 224 L 424,224 Q 432,224 432,232 L 432,568 Q 432,576 424,576 L 416,576' ></path>
+<text x='409' y='219' transform='rotate(0 409,219)' title='Fk fk_license_promo_code
+license ref promo_code ( promo_code_id -&gt; id )' class='relName'>promo_code_id</text>
+<!-- ============= Fk 'license_permission_fk_license_permission_license' ============= -->
+<path id='license_permission_fk_license_permission_license'  onmouseover="hghl(['license_permission_fk_license_permission_license','fbkt_login.license_permission.license_id','fbkt_login.license.id'])" onmouseout="uhghl(['license_permission_fk_license_permission_license','fbkt_login.license_permission.license_id','fbkt_login.license.id'])" transform='translate(8,0)' class='scene' d='M 176 128 L 256,128' >
+	<title>Fk fk_license_permission_license
+license_permission ref license ( license_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 176 128 L 256,128' ></path>
+<text x='185' y='123' transform='rotate(0 185,123)' title='Fk fk_license_permission_license
+license_permission ref license ( license_id -&gt; id )' class='relName'>license_id</text>
+<!-- ============= Fk 'license_permission_fk_license_permission_permission' ============= -->
+<path id='license_permission_fk_license_permission_permission'  onmouseover="hghl(['license_permission_fk_license_permission_permission','fbkt_login.license_permission.permission_id','fbkt_login.permission.id'])" onmouseout="uhghl(['license_permission_fk_license_permission_permission','fbkt_login.license_permission.permission_id','fbkt_login.permission.id'])" transform='translate(8,0)' class='scene' d='M 96 208 L 96,256' >
+	<title>Fk fk_license_permission_permission
+license_permission ref permission ( permission_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 96 208 L 96,256' ></path>
+<text x='111' y='209' transform='rotate(90 111,209)' title='Fk fk_license_permission_permission
+license_permission ref permission ( permission_id -&gt; id )' class='relName'>permission_id</text>
+<!-- ============= Fk 'login_token_fk_login_token_user_login' ============= -->
+<path id='login_token_fk_login_token_user_login'  onmouseover="hghl(['login_token_fk_login_token_user_login','fbkt_login.login_token.user_login_id','fbkt_login.user_login.id'])" onmouseout="uhghl(['login_token_fk_login_token_user_login','fbkt_login.login_token.user_login_id','fbkt_login.user_login.id'])" transform='translate(8,0)' class='scene' d='M 896 416 L 896,544' >
+	<title>Fk fk_login_token_user_login
+login_token ref user_login ( user_login_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 896 416 L 896,544' ></path>
+<text x='911' y='417' transform='rotate(90 911,417)' title='Fk fk_login_token_user_login
+login_token ref user_login ( user_login_id -&gt; id )' class='relName'>user_login_id</text>
+<!-- ============= Fk 'facility_fk_facility_location' ============= -->
+<path id='facility_fk_facility_location'  onmouseover="hghl(['facility_fk_facility_location','fbkt_login.facility.location_id','fbkt_login.location.id'])" onmouseout="uhghl(['facility_fk_facility_location','fbkt_login.facility.location_id','fbkt_login.location.id'])" transform='translate(8,0)' class='scene' d='M 400 320 L 480,320' >
+	<title>Fk fk_facility_location
+facility ref location ( location_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 400 320 L 480,320' ></path>
+<text x='409' y='315' transform='rotate(0 409,315)' title='Fk fk_facility_location
+facility ref location ( location_id -&gt; id )' class='relName'>location_id</text>
+<!-- ============= Fk 'facility_fk_facility_organization' ============= -->
+<path id='facility_fk_facility_organization'  onmouseover="hghl(['facility_fk_facility_organization','fbkt_login.facility.organization_id','fbkt_login.organization.id'])" onmouseout="uhghl(['facility_fk_facility_organization','fbkt_login.facility.organization_id','fbkt_login.organization.id'])" transform='translate(8,0)' class='scene' d='M 400 336 L 456,336 Q 464,336 464,328 L 464,152 Q 464,144 472,144 L 672,144' >
+	<title>Fk fk_facility_organization
+facility ref organization ( organization_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 400 336 L 456,336 Q 464,336 464,328 L 464,152 Q 464,144 472,144 L 672,144' ></path>
+<text x='409' y='331' transform='rotate(0 409,331)' title='Fk fk_facility_organization
+facility ref organization ( organization_id -&gt; id )' class='relName'>organization_id</text>
+<!-- ============= Fk 'organization_fk_organization_location' ============= -->
+<path id='organization_fk_organization_location'  onmouseover="hghl(['organization_fk_organization_location','fbkt_login.organization.location_id','fbkt_login.location.id'])" onmouseout="uhghl(['organization_fk_organization_location','fbkt_login.organization.location_id','fbkt_login.location.id'])" transform='translate(8,0)' class='scene' d='M 672 128 L 616,128 Q 608,128 608,136 L 608,208' >
+	<title>Fk fk_organization_location
+organization ref location ( location_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 672 128 L 616,128 Q 608,128 608,136 L 608,208' ></path>
+<text x='616' y='123' transform='rotate(0 616,123)' title='Fk fk_organization_location
+organization ref location ( location_id -&gt; id )' class='relName'>location_id</text>
+<!-- ============= Fk 'contact_fk_contact_location' ============= -->
+<path id='contact_fk_contact_location'  onmouseover="hghl(['contact_fk_contact_location','fbkt_login.contact.location_id','fbkt_login.location.id'])" onmouseout="uhghl(['contact_fk_contact_location','fbkt_login.contact.location_id','fbkt_login.location.id'])" transform='translate(8,0)' class='scene' d='M 672 560 L 616,560 Q 608,560 608,552 L 608,480' >
+	<title>Fk fk_contact_location
+contact ref location ( location_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 672 560 L 616,560 Q 608,560 608,552 L 608,480' ></path>
+<text x='616' y='555' transform='rotate(0 616,555)' title='Fk fk_contact_location
+contact ref location ( location_id -&gt; id )' class='relName'>location_id</text>
+<!-- ============= Fk 'contact_fk_contact_organization' ============= -->
+<path id='contact_fk_contact_organization'  onmouseover="hghl(['contact_fk_contact_organization','fbkt_login.contact.organization_id','fbkt_login.organization.id'])" onmouseout="uhghl(['contact_fk_contact_organization','fbkt_login.contact.organization_id','fbkt_login.organization.id'])" transform='translate(8,0)' class='scene' d='M 720 544 L 720,176' >
+	<title>Fk fk_contact_organization
+contact ref organization ( organization_id -&gt; id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 720 544 L 720,176' ></path>
+<text x='723' y='539' transform='rotate(270 723,539)' title='Fk fk_contact_organization
+contact ref organization ( organization_id -&gt; id )' class='relName'>organization_id</text>
+<!-- ============= Table 'application' ============= -->
+<rect class='table' x='288' y='760' width='256' height='176' rx='8' ry='8' style='stroke:none'/>
+<path d='M 288.00 788.00 L 288.00 768.00 Q 288.00 760.00 296.00 760.00 L 536.00 760.00 Q 544.00 760.00 544.00 768.00 L 544.00 788.00 L288.00 788.00 ' style='fill:url(#tbg_bfd4f5);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='288' y='760' width='256' height='176' rx='8' ry='8' style='fill:none;stroke:#becfe9'/>
+<line class='delim' x1='288.000000' y1='788.000000' x2='544.000000' y2='788.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='304.000000' y1='788.000000' x2='304.000000' y2='936.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='532.000000' y1='788.000000' x2='532.000000' y2='936.000000' style='stroke:#becfe9'/>
+<a xlink:href='#application'><text x='382' y='780'>application</text><title>Table fbkt_login.application</title></a>
+  <use id='nn' x='290' y='797' xlink:href='#nn'/><a xlink:href='#application.id'><use id='pk' x='290' y='796' xlink:href='#pk'/><title>Pk pk_application ( id ) </title></a>
+<a xlink:href='#application.id'><text id='fbkt_login.application.id' x='307' y='807' onmouseover="hghl(['license_type_fk_license_type_application'])" onmouseout="uhghl(['license_type_fk_license_type_application'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#application.id'><use id='ref' x='532' y='796' xlink:href='#ref'/><title>Referred by license_type ( application_id -&gt; id ) </title></a>
+  <use id='nn' x='290' y='813' xlink:href='#nn'/><a xlink:href='#application.uid'><use id='unq' x='290' y='812' xlink:href='#unq'/><title>Unq application_uid_key ( uid ) </title></a>
+<a xlink:href='#application.uid'><text id='fbkt_login.application.uid' x='307' y='823'>uid</text><title>uid
+* uuid default uuid_generate_v4()</title></a>
+  <use id='nn' x='290' y='829' xlink:href='#nn'/><a xlink:href='#application.name'><text id='fbkt_login.application.name' x='307' y='839'>name</text><title>name
+* text</title></a>
+  <use id='nn' x='290' y='845' xlink:href='#nn'/><a xlink:href='#application.version'><text id='fbkt_login.application.version' x='307' y='855'>version</text><title>version
+* text</title></a>
+  <use id='nn' x='290' y='861' xlink:href='#nn'/><a xlink:href='#application.attributes_json'><text id='fbkt_login.application.attributes_json' x='307' y='871'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+  <use id='nn' x='290' y='877' xlink:href='#nn'/><a xlink:href='#application.require_promo_code_for_registration'><text id='fbkt_login.application.require_promo_code_for_registration' x='307' y='887'>require_promo_code_for_registration</text><title>require_promo_code_for_registration
+* bool default false</title></a>
+  <use id='nn' x='290' y='893' xlink:href='#nn'/><a xlink:href='#application.default_new_registration_license_key'><text id='fbkt_login.application.default_new_registration_license_key' x='307' y='903'>default_new_registration_license_key</text><title>default_new_registration_license_key
+* text default 'ADMIN'::text</title></a>
+  <use id='nn' x='290' y='909' xlink:href='#nn'/><a xlink:href='#application.default_new_user_licensekey'><text id='fbkt_login.application.default_new_user_licensekey' x='307' y='919'>default_new_user_licensekey</text><title>default_new_user_licensekey
+* text default 'USER'::text</title></a>
+
+<!-- ============= Table 'license_type' ============= -->
+<rect class='table' x='80' y='552' width='144' height='128' rx='8' ry='8' style='stroke:none'/>
+<path d='M 80.00 580.00 L 80.00 560.00 Q 80.00 552.00 88.00 552.00 L 216.00 552.00 Q 224.00 552.00 224.00 560.00 L 224.00 580.00 L80.00 580.00 ' style='fill:url(#tbg_bfd4f5);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='80' y='552' width='144' height='128' rx='8' ry='8' style='fill:none;stroke:#becfe9'/>
+<line class='delim' x1='80.000000' y1='580.000000' x2='224.000000' y2='580.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='96.000000' y1='580.000000' x2='96.000000' y2='680.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='212.000000' y1='580.000000' x2='212.000000' y2='680.000000' style='stroke:#becfe9'/>
+<a xlink:href='#license_type'><text x='113' y='572'>license_type</text><title>Table fbkt_login.license_type</title></a>
+  <use id='nn' x='82' y='589' xlink:href='#nn'/><a xlink:href='#license_type.id'><use id='pk' x='82' y='588' xlink:href='#pk'/><title>Pk pk_license_type ( id ) </title></a>
+<a xlink:href='#license_type.id'><text id='fbkt_login.license_type.id' x='99' y='599' onmouseover="hghl(['license_fk_license_type','promo_code_fk_promo_code_license_type'])" onmouseout="uhghl(['license_fk_license_type','promo_code_fk_promo_code_license_type'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#license_type.id'><use id='ref' x='212' y='588' xlink:href='#ref'/><title>Referred by license ( license_type_id -&gt; id ) 
+Referred by promo_code ( license_type_id -&gt; id ) </title></a>
+  <use id='nn' x='82' y='605' xlink:href='#nn'/><a xlink:href='#license_type.application_id'><text id='fbkt_login.license_type.application_id' x='99' y='615' onmouseover="hghl(['license_type_fk_license_type_application'])" onmouseout="uhghl(['license_type_fk_license_type_application'])">application_id</text><title>application_id
+* integer</title></a>
+<a xlink:href='#license_type.application_id'><use id='fk' x='212' y='604' xlink:href='#fk'/><title>References application ( application_id -&gt; id ) </title></a>
+  <use id='nn' x='82' y='621' xlink:href='#nn'/><a xlink:href='#license_type.name'><text id='fbkt_login.license_type.name' x='99' y='631'>name</text><title>name
+* text</title></a>
+  <use id='nn' x='82' y='637' xlink:href='#nn'/><a xlink:href='#license_type.license_type_key'><text id='fbkt_login.license_type.license_type_key' x='99' y='647'>license_type_key</text><title>license_type_key
+* text</title></a>
+  <use id='nn' x='82' y='653' xlink:href='#nn'/><a xlink:href='#license_type.active'><text id='fbkt_login.license_type.active' x='99' y='663'>active</text><title>active
+* bool default true</title></a>
+
+<!-- ============= Table 'organization_reference' ============= -->
+<rect class='table' x='880' y='40' width='192' height='112' rx='8' ry='8' style='stroke:none'/>
+<path d='M 880.00 68.00 L 880.00 48.00 Q 880.00 40.00 888.00 40.00 L 1064.00 40.00 Q 1072.00 40.00 1072.00 48.00 L 1072.00 68.00 L880.00 68.00 ' style='fill:url(#tbg_bfbff5);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='880' y='40' width='192' height='112' rx='8' ry='8' style='fill:none;stroke:#bebee9'/>
+<line class='delim' x1='880.000000' y1='68.000000' x2='1072.000000' y2='68.000000' style='stroke:#bebee9'/>
+<line class='delim' x1='896.000000' y1='68.000000' x2='896.000000' y2='152.000000' style='stroke:#bebee9'/>
+<line class='delim' x1='1060.000000' y1='68.000000' x2='1060.000000' y2='152.000000' style='stroke:#bebee9'/>
+<a xlink:href='#organization_reference'><text x='908' y='60'>organization_reference</text><title>Table fbkt_login.organization_reference</title></a>
+  <use id='nn' x='882' y='77' xlink:href='#nn'/><a xlink:href='#organization_reference.id'><use id='pk' x='882' y='76' xlink:href='#pk'/><title>Pk pk_organization_reference ( id ) </title></a>
+<a xlink:href='#organization_reference.id'><text id='fbkt_login.organization_reference.id' x='899' y='87'>id</text><title>id
+* serial</title></a>
+  <use id='nn' x='882' y='93' xlink:href='#nn'/><a xlink:href='#organization_reference.referencing_organization_id'><text id='fbkt_login.organization_reference.referencing_organization_id' x='899' y='103' onmouseover="hghl(['organization_reference_fk_organization_reference_referencing_organization'])" onmouseout="uhghl(['organization_reference_fk_organization_reference_referencing_organization'])">referencing_organization_id</text><title>referencing_organization_id
+* integer</title></a>
+<a xlink:href='#organization_reference.referencing_organization_id'><use id='fk' x='1060' y='92' xlink:href='#fk'/><title>References organization ( referencing_organization_id -&gt; id ) </title></a>
+  <use id='nn' x='882' y='109' xlink:href='#nn'/><a xlink:href='#organization_reference.referenced_organization_id'><text id='fbkt_login.organization_reference.referenced_organization_id' x='899' y='119' onmouseover="hghl(['organization_reference_fk_organization_reference_referenced_organization'])" onmouseout="uhghl(['organization_reference_fk_organization_reference_referenced_organization'])">referenced_organization_id</text><title>referenced_organization_id
+* integer</title></a>
+<a xlink:href='#organization_reference.referenced_organization_id'><use id='fk' x='1060' y='108' xlink:href='#fk'/><title>References organization ( referenced_organization_id -&gt; id ) </title></a>
+  <use id='nn' x='882' y='125' xlink:href='#nn'/><a xlink:href='#organization_reference.organization_reference_type'><text id='fbkt_login.organization_reference.organization_reference_type' x='899' y='135'>organization_reference_type</text><title>organization_reference_type
+* "fbkt_login"."organization_reference_type"</title></a>
+
+<!-- ============= Table 'promo_code' ============= -->
+<rect class='table' x='288' y='552' width='128' height='144' rx='8' ry='8' style='stroke:none'/>
+<path d='M 288.00 580.00 L 288.00 560.00 Q 288.00 552.00 296.00 552.00 L 408.00 552.00 Q 416.00 552.00 416.00 560.00 L 416.00 580.00 L288.00 580.00 ' style='fill:url(#tbg_bfd4f5);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='288' y='552' width='128' height='144' rx='8' ry='8' style='fill:none;stroke:#becfe9'/>
+<line class='delim' x1='288.000000' y1='580.000000' x2='416.000000' y2='580.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='304.000000' y1='580.000000' x2='304.000000' y2='696.000000' style='stroke:#becfe9'/>
+<line class='delim' x1='404.000000' y1='580.000000' x2='404.000000' y2='696.000000' style='stroke:#becfe9'/>
+<a xlink:href='#promo_code'><text x='315' y='572'>promo_code</text><title>Table fbkt_login.promo_code</title></a>
+  <use id='nn' x='290' y='589' xlink:href='#nn'/><a xlink:href='#promo_code.id'><use id='pk' x='290' y='588' xlink:href='#pk'/><title>Pk pk_promo_code ( id ) </title></a>
+<a xlink:href='#promo_code.id'><text id='fbkt_login.promo_code.id' x='307' y='599' onmouseover="hghl(['license_fk_license_promo_code'])" onmouseout="uhghl(['license_fk_license_promo_code'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#promo_code.id'><use id='ref' x='404' y='588' xlink:href='#ref'/><title>Referred by license ( promo_code_id -&gt; id ) </title></a>
+  <use id='nn' x='290' y='605' xlink:href='#nn'/><a xlink:href='#promo_code.license_type_id'><text id='fbkt_login.promo_code.license_type_id' x='307' y='615' onmouseover="hghl(['promo_code_fk_promo_code_license_type'])" onmouseout="uhghl(['promo_code_fk_promo_code_license_type'])">license_type_id</text><title>license_type_id
+* integer</title></a>
+<a xlink:href='#promo_code.license_type_id'><use id='fk' x='404' y='604' xlink:href='#fk'/><title>References license_type ( license_type_id -&gt; id ) </title></a>
+  <use id='nn' x='290' y='621' xlink:href='#nn'/><a xlink:href='#promo_code.name'><text id='fbkt_login.promo_code.name' x='307' y='631'>name</text><title>name
+* text</title></a>
+  <a xlink:href='#promo_code.expiration_date'><text id='fbkt_login.promo_code.expiration_date' x='307' y='647'>expiration_date</text><title>expiration_date
+timestamp</title></a>
+  <use id='nn' x='290' y='653' xlink:href='#nn'/><a xlink:href='#promo_code.the_promo_code'><use id='unq' x='290' y='652' xlink:href='#unq'/><title>Unq promo_code_the_promo_code_key ( the_promo_code ) </title></a>
+<a xlink:href='#promo_code.the_promo_code'><text id='fbkt_login.promo_code.the_promo_code' x='307' y='663'>the_promo_code</text><title>the_promo_code
+* text</title></a>
+  <use id='nn' x='290' y='669' xlink:href='#nn'/><a xlink:href='#promo_code.attributes_json'><text id='fbkt_login.promo_code.attributes_json' x='307' y='679'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+
+<!-- ============= Table 'user_login' ============= -->
+<rect class='table' x='880' y='552' width='144' height='128' rx='8' ry='8' style='stroke:none'/>
+<path d='M 880.00 580.00 L 880.00 560.00 Q 880.00 552.00 888.00 552.00 L 1016.00 552.00 Q 1024.00 552.00 1024.00 560.00 L 1024.00 580.00 L880.00 580.00 ' style='fill:url(#tbg_f5ddbf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='880' y='552' width='144' height='128' rx='8' ry='8' style='fill:none;stroke:#e9d6be'/>
+<line class='delim' x1='880.000000' y1='580.000000' x2='1024.000000' y2='580.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='896.000000' y1='580.000000' x2='896.000000' y2='680.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='1012.000000' y1='580.000000' x2='1012.000000' y2='680.000000' style='stroke:#e9d6be'/>
+<a xlink:href='#user_login'><text x='920' y='572'>user_login</text><title>Table fbkt_login.user_login</title></a>
+  <use id='nn' x='882' y='589' xlink:href='#nn'/><a xlink:href='#user_login.id'><use id='pk' x='882' y='588' xlink:href='#pk'/><title>Pk pk_user_login ( id ) </title></a>
+<a xlink:href='#user_login.id'><text id='fbkt_login.user_login.id' x='899' y='599' onmouseover="hghl(['login_token_fk_login_token_user_login'])" onmouseout="uhghl(['login_token_fk_login_token_user_login'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#user_login.id'><use id='ref' x='1012' y='588' xlink:href='#ref'/><title>Referred by login_token ( user_login_id -&gt; id ) </title></a>
+  <use id='nn' x='882' y='605' xlink:href='#nn'/><a xlink:href='#user_login.contact_id'><text id='fbkt_login.user_login.contact_id' x='899' y='615' onmouseover="hghl(['user_login_fk_user_login_contact'])" onmouseout="uhghl(['user_login_fk_user_login_contact'])">contact_id</text><title>contact_id
+* integer</title></a>
+<a xlink:href='#user_login.contact_id'><use id='fk' x='1012' y='604' xlink:href='#fk'/><title>References contact ( contact_id -&gt; id ) </title></a>
+  <use id='nn' x='882' y='621' xlink:href='#nn'/><a xlink:href='#user_login.login'><text id='fbkt_login.user_login.login' x='899' y='631'>login</text><title>login
+* text</title></a>
+  <use id='nn' x='882' y='637' xlink:href='#nn'/><a xlink:href='#user_login.hashed_password'><text id='fbkt_login.user_login.hashed_password' x='899' y='647'>hashed_password</text><title>hashed_password
+* text</title></a>
+  <a xlink:href='#user_login.entity_filters_json'><text id='fbkt_login.user_login.entity_filters_json' x='899' y='663'>entity_filters_json</text><title>entity_filters_json
+text</title></a>
+
+<!-- ============= Table 'license' ============= -->
+<rect class='table' x='272' y='40' width='128' height='192' rx='8' ry='8' style='stroke:none'/>
+<path d='M 272.00 68.00 L 272.00 48.00 Q 272.00 40.00 280.00 40.00 L 392.00 40.00 Q 400.00 40.00 400.00 48.00 L 400.00 68.00 L272.00 68.00 ' style='fill:url(#tbg_c8f5bf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='272' y='40' width='128' height='192' rx='8' ry='8' style='fill:none;stroke:#c5e9be'/>
+<line class='delim' x1='272.000000' y1='68.000000' x2='400.000000' y2='68.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='288.000000' y1='68.000000' x2='288.000000' y2='232.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='388.000000' y1='68.000000' x2='388.000000' y2='232.000000' style='stroke:#c5e9be'/>
+<a xlink:href='#license'><text x='312' y='60'>license</text><title>Table fbkt_login.license</title></a>
+  <use id='nn' x='274' y='77' xlink:href='#nn'/><a xlink:href='#license.id'><use id='pk' x='274' y='76' xlink:href='#pk'/><title>Pk pk_license ( id ) </title></a>
+<a xlink:href='#license.id'><text id='fbkt_login.license.id' x='291' y='87' onmouseover="hghl(['license_permission_fk_license_permission_license'])" onmouseout="uhghl(['license_permission_fk_license_permission_license'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#license.id'><use id='ref' x='388' y='76' xlink:href='#ref'/><title>Referred by license_permission ( license_id -&gt; id ) </title></a>
+  <use id='nn' x='274' y='93' xlink:href='#nn'/><a xlink:href='#license.organization_id'><text id='fbkt_login.license.organization_id' x='291' y='103' onmouseover="hghl(['license_fk_license_organization'])" onmouseout="uhghl(['license_fk_license_organization'])">organization_id</text><title>organization_id
+* integer</title></a>
+<a xlink:href='#license.organization_id'><use id='fk' x='388' y='92' xlink:href='#fk'/><title>References organization ( organization_id -&gt; id ) </title></a>
+  <a xlink:href='#license.contact_id'><text id='fbkt_login.license.contact_id' x='291' y='119' onmouseover="hghl(['license_fk_license_contact'])" onmouseout="uhghl(['license_fk_license_contact'])">contact_id</text><title>contact_id
+integer</title></a>
+<a xlink:href='#license.contact_id'><use id='fk' x='388' y='108' xlink:href='#fk'/><title>References contact ( contact_id -&gt; id ) </title></a>
+  <use id='nn' x='274' y='125' xlink:href='#nn'/><a xlink:href='#license.license_type_id'><text id='fbkt_login.license.license_type_id' x='291' y='135' onmouseover="hghl(['license_fk_license_type'])" onmouseout="uhghl(['license_fk_license_type'])">license_type_id</text><title>license_type_id
+* integer</title></a>
+<a xlink:href='#license.license_type_id'><use id='fk' x='388' y='124' xlink:href='#fk'/><title>References license_type ( license_type_id -&gt; id ) </title></a>
+  <a xlink:href='#license.activation_date'><text id='fbkt_login.license.activation_date' x='291' y='151'>activation_date</text><title>activation_date
+timestamp</title></a>
+  <a xlink:href='#license.expiration_date'><text id='fbkt_login.license.expiration_date' x='291' y='167'>expiration_date</text><title>expiration_date
+timestamp</title></a>
+  <a xlink:href='#license.promo_code_id'><text id='fbkt_login.license.promo_code_id' x='291' y='183' onmouseover="hghl(['license_fk_license_promo_code'])" onmouseout="uhghl(['license_fk_license_promo_code'])">promo_code_id</text><title>promo_code_id
+integer</title></a>
+<a xlink:href='#license.promo_code_id'><use id='fk' x='388' y='172' xlink:href='#fk'/><title>References promo_code ( promo_code_id -&gt; id ) </title></a>
+  <use id='nn' x='274' y='189' xlink:href='#nn'/><a xlink:href='#license.attributes_json'><text id='fbkt_login.license.attributes_json' x='291' y='199'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+  <use id='nn' x='274' y='205' xlink:href='#nn'/><a xlink:href='#license.status'><text id='fbkt_login.license.status' x='291' y='215'>status</text><title>status
+* "fbkt_login"."license_status"</title></a>
+
+<!-- ============= Table 'license_permission' ============= -->
+<rect class='table' x='48' y='104' width='128' height='96' rx='8' ry='8' style='stroke:none'/>
+<path d='M 48.00 132.00 L 48.00 112.00 Q 48.00 104.00 56.00 104.00 L 168.00 104.00 Q 176.00 104.00 176.00 112.00 L 176.00 132.00 L48.00 132.00 ' style='fill:url(#tbg_bcd5f1);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='48' y='104' width='128' height='96' rx='8' ry='8' style='fill:none;stroke:#bed2e9'/>
+<line class='delim' x1='48.000000' y1='132.000000' x2='176.000000' y2='132.000000' style='stroke:#bed2e9'/>
+<line class='delim' x1='64.000000' y1='132.000000' x2='64.000000' y2='200.000000' style='stroke:#bed2e9'/>
+<line class='delim' x1='164.000000' y1='132.000000' x2='164.000000' y2='200.000000' style='stroke:#bed2e9'/>
+<a xlink:href='#license_permission'><text x='56' y='124'>license_permission</text><title>Table fbkt_login.license_permission</title></a>
+  <use id='nn' x='50' y='141' xlink:href='#nn'/><a xlink:href='#license_permission.id'><use id='pk' x='50' y='140' xlink:href='#pk'/><title>Pk pk_license_permission ( id ) </title></a>
+<a xlink:href='#license_permission.id'><text id='fbkt_login.license_permission.id' x='67' y='151'>id</text><title>id
+* serial</title></a>
+  <use id='nn' x='50' y='157' xlink:href='#nn'/><a xlink:href='#license_permission.license_id'><text id='fbkt_login.license_permission.license_id' x='67' y='167' onmouseover="hghl(['license_permission_fk_license_permission_license'])" onmouseout="uhghl(['license_permission_fk_license_permission_license'])">license_id</text><title>license_id
+* integer</title></a>
+<a xlink:href='#license_permission.license_id'><use id='fk' x='164' y='156' xlink:href='#fk'/><title>References license ( license_id -&gt; id ) </title></a>
+  <use id='nn' x='50' y='173' xlink:href='#nn'/><a xlink:href='#license_permission.permission_id'><text id='fbkt_login.license_permission.permission_id' x='67' y='183' onmouseover="hghl(['license_permission_fk_license_permission_permission'])" onmouseout="uhghl(['license_permission_fk_license_permission_permission'])">permission_id</text><title>permission_id
+* integer</title></a>
+<a xlink:href='#license_permission.permission_id'><use id='fk' x='164' y='172' xlink:href='#fk'/><title>References permission ( permission_id -&gt; id ) </title></a>
+
+<!-- ============= Table 'permission' ============= -->
+<rect class='table' x='80' y='264' width='80' height='80' rx='8' ry='8' style='stroke:none'/>
+<path d='M 80.00 292.00 L 80.00 272.00 Q 80.00 264.00 88.00 264.00 L 152.00 264.00 Q 160.00 264.00 160.00 272.00 L 160.00 292.00 L80.00 292.00 ' style='fill:url(#tbg_bcd5f1);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='80' y='264' width='80' height='80' rx='8' ry='8' style='fill:none;stroke:#bed2e9'/>
+<line class='delim' x1='80.000000' y1='292.000000' x2='160.000000' y2='292.000000' style='stroke:#bed2e9'/>
+<line class='delim' x1='96.000000' y1='292.000000' x2='96.000000' y2='344.000000' style='stroke:#bed2e9'/>
+<line class='delim' x1='148.000000' y1='292.000000' x2='148.000000' y2='344.000000' style='stroke:#bed2e9'/>
+<a xlink:href='#permission'><text x='87' y='284'>permission</text><title>Table fbkt_login.permission</title></a>
+  <use id='nn' x='82' y='301' xlink:href='#nn'/><a xlink:href='#permission.id'><use id='pk' x='82' y='300' xlink:href='#pk'/><title>Pk pk_permission ( id ) </title></a>
+<a xlink:href='#permission.id'><text id='fbkt_login.permission.id' x='99' y='311' onmouseover="hghl(['license_permission_fk_license_permission_permission'])" onmouseout="uhghl(['license_permission_fk_license_permission_permission'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#permission.id'><use id='ref' x='148' y='300' xlink:href='#ref'/><title>Referred by license_permission ( permission_id -&gt; id ) </title></a>
+  <use id='nn' x='82' y='317' xlink:href='#nn'/><a xlink:href='#permission.name'><text id='fbkt_login.permission.name' x='99' y='327'>name</text><title>name
+* text</title></a>
+
+<!-- ============= Table 'login_token' ============= -->
+<rect class='table' x='880' y='296' width='128' height='112' rx='8' ry='8' style='stroke:none'/>
+<path d='M 880.00 324.00 L 880.00 304.00 Q 880.00 296.00 888.00 296.00 L 1000.00 296.00 Q 1008.00 296.00 1008.00 304.00 L 1008.00 324.00 L880.00 324.00 ' style='fill:url(#tbg_f5ddbf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='880' y='296' width='128' height='112' rx='8' ry='8' style='fill:none;stroke:#e9d6be'/>
+<line class='delim' x1='880.000000' y1='324.000000' x2='1008.000000' y2='324.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='896.000000' y1='324.000000' x2='896.000000' y2='408.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='996.000000' y1='324.000000' x2='996.000000' y2='408.000000' style='stroke:#e9d6be'/>
+<a xlink:href='#login_token'><text x='908' y='316'>login_token</text><title>Table fbkt_login.login_token</title></a>
+  <use id='nn' x='882' y='333' xlink:href='#nn'/><a xlink:href='#login_token.id'><use id='pk' x='882' y='332' xlink:href='#pk'/><title>Pk pk_login_token ( id ) </title></a>
+<a xlink:href='#login_token.id'><text id='fbkt_login.login_token.id' x='899' y='343'>id</text><title>id
+* serial</title></a>
+  <use id='nn' x='882' y='349' xlink:href='#nn'/><a xlink:href='#login_token.user_login_id'><text id='fbkt_login.login_token.user_login_id' x='899' y='359' onmouseover="hghl(['login_token_fk_login_token_user_login'])" onmouseout="uhghl(['login_token_fk_login_token_user_login'])">user_login_id</text><title>user_login_id
+* integer</title></a>
+<a xlink:href='#login_token.user_login_id'><use id='fk' x='996' y='348' xlink:href='#fk'/><title>References user_login ( user_login_id -&gt; id ) </title></a>
+  <use id='nn' x='882' y='365' xlink:href='#nn'/><a xlink:href='#login_token.token'><text id='fbkt_login.login_token.token' x='899' y='375'>token</text><title>token
+* uuid</title></a>
+  <use id='nn' x='882' y='381' xlink:href='#nn'/><a xlink:href='#login_token.expiration_date'><text id='fbkt_login.login_token.expiration_date' x='899' y='391'>expiration_date</text><title>expiration_date
+* timestamp</title></a>
+
+<!-- ============= Table 'location' ============= -->
+<rect class='table' x='496' y='216' width='128' height='256' rx='8' ry='8' style='stroke:none'/>
+<path d='M 496.00 244.00 L 496.00 224.00 Q 496.00 216.00 504.00 216.00 L 616.00 216.00 Q 624.00 216.00 624.00 224.00 L 624.00 244.00 L496.00 244.00 ' style='fill:url(#tbg_c8f5bf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='496' y='216' width='128' height='256' rx='8' ry='8' style='fill:none;stroke:#c5e9be'/>
+<line class='delim' x1='496.000000' y1='244.000000' x2='624.000000' y2='244.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='512.000000' y1='244.000000' x2='512.000000' y2='472.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='612.000000' y1='244.000000' x2='612.000000' y2='472.000000' style='stroke:#c5e9be'/>
+<a xlink:href='#location'><text x='534' y='236'>location</text><title>Table fbkt_login.location</title></a>
+  <use id='nn' x='498' y='253' xlink:href='#nn'/><a xlink:href='#location.id'><use id='pk' x='498' y='252' xlink:href='#pk'/><title>Pk pk_location ( id ) </title></a>
+<a xlink:href='#location.id'><text id='fbkt_login.location.id' x='515' y='263' onmouseover="hghl(['contact_fk_contact_location','facility_fk_facility_location','organization_fk_organization_location'])" onmouseout="uhghl(['contact_fk_contact_location','facility_fk_facility_location','organization_fk_organization_location'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#location.id'><use id='ref' x='612' y='252' xlink:href='#ref'/><title>Referred by contact ( location_id -&gt; id ) 
+Referred by facility ( location_id -&gt; id ) 
+Referred by organization ( location_id -&gt; id ) </title></a>
+  <use id='nn' x='498' y='269' xlink:href='#nn'/><a xlink:href='#location.uid'><use id='unq' x='498' y='268' xlink:href='#unq'/><title>Unq location_uid_key ( uid ) </title></a>
+<a xlink:href='#location.uid'><text id='fbkt_login.location.uid' x='515' y='279'>uid</text><title>uid
+* uuid default uuid_generate_v4()</title></a>
+  <a xlink:href='#location.name'><text id='fbkt_login.location.name' x='515' y='295'>name</text><title>name
+text</title></a>
+  <a xlink:href='#location.geo_json'><text id='fbkt_login.location.geo_json' x='515' y='311'>geo_json</text><title>geo_json
+jsonb</title></a>
+  <a xlink:href='#location.geom'><text id='fbkt_login.location.geom' x='515' y='327'>geom</text><title>geom
+geometry</title></a>
+  <a xlink:href='#location.address_1'><text id='fbkt_login.location.address_1' x='515' y='343'>address_1</text><title>address_1
+text</title></a>
+  <a xlink:href='#location.address_2'><text id='fbkt_login.location.address_2' x='515' y='359'>address_2</text><title>address_2
+text</title></a>
+  <a xlink:href='#location.city'><text id='fbkt_login.location.city' x='515' y='375'>city</text><title>city
+text</title></a>
+  <a xlink:href='#location.county'><text id='fbkt_login.location.county' x='515' y='391'>county</text><title>county
+text</title></a>
+  <a xlink:href='#location.state'><text id='fbkt_login.location.state' x='515' y='407'>state</text><title>state
+text</title></a>
+  <a xlink:href='#location.country'><text id='fbkt_login.location.country' x='515' y='423'>country</text><title>country
+text</title></a>
+  <a xlink:href='#location.postal_code'><text id='fbkt_login.location.postal_code' x='515' y='439'>postal_code</text><title>postal_code
+text</title></a>
+  <use id='nn' x='498' y='445' xlink:href='#nn'/><a xlink:href='#location.attributes_json'><text id='fbkt_login.location.attributes_json' x='515' y='455'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+
+<!-- ============= Table 'facility' ============= -->
+<rect class='table' x='272' y='296' width='128' height='144' rx='8' ry='8' style='stroke:none'/>
+<path d='M 272.00 324.00 L 272.00 304.00 Q 272.00 296.00 280.00 296.00 L 392.00 296.00 Q 400.00 296.00 400.00 304.00 L 400.00 324.00 L272.00 324.00 ' style='fill:url(#tbg_c8f5bf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='272' y='296' width='128' height='144' rx='8' ry='8' style='fill:none;stroke:#c5e9be'/>
+<line class='delim' x1='272.000000' y1='324.000000' x2='400.000000' y2='324.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='288.000000' y1='324.000000' x2='288.000000' y2='440.000000' style='stroke:#c5e9be'/>
+<line class='delim' x1='388.000000' y1='324.000000' x2='388.000000' y2='440.000000' style='stroke:#c5e9be'/>
+<a xlink:href='#facility'><text x='313' y='316'>facility</text><title>Table fbkt_login.facility</title></a>
+  <use id='nn' x='274' y='333' xlink:href='#nn'/><a xlink:href='#facility.id'><use id='pk' x='274' y='332' xlink:href='#pk'/><title>Pk pk_facility ( id ) </title></a>
+<a xlink:href='#facility.id'><text id='fbkt_login.facility.id' x='291' y='343'>id</text><title>id
+* serial</title></a>
+  <use id='nn' x='274' y='349' xlink:href='#nn'/><a xlink:href='#facility.organization_id'><text id='fbkt_login.facility.organization_id' x='291' y='359' onmouseover="hghl(['facility_fk_facility_organization'])" onmouseout="uhghl(['facility_fk_facility_organization'])">organization_id</text><title>organization_id
+* integer</title></a>
+<a xlink:href='#facility.organization_id'><use id='fk' x='388' y='348' xlink:href='#fk'/><title>References organization ( organization_id -&gt; id ) </title></a>
+  <use id='nn' x='274' y='365' xlink:href='#nn'/><a xlink:href='#facility.name'><text id='fbkt_login.facility.name' x='291' y='375'>name</text><title>name
+* text</title></a>
+  <use id='nn' x='274' y='381' xlink:href='#nn'/><a xlink:href='#facility.attributes_json'><text id='fbkt_login.facility.attributes_json' x='291' y='391'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+  <a xlink:href='#facility.location_id'><text id='fbkt_login.facility.location_id' x='291' y='407' onmouseover="hghl(['facility_fk_facility_location'])" onmouseout="uhghl(['facility_fk_facility_location'])">location_id</text><title>location_id
+integer</title></a>
+<a xlink:href='#facility.location_id'><use id='fk' x='388' y='396' xlink:href='#fk'/><title>References location ( location_id -&gt; id ) </title></a>
+  <use id='nn' x='274' y='413' xlink:href='#nn'/><a xlink:href='#facility.inactive'><text id='fbkt_login.facility.inactive' x='291' y='423'>inactive</text><title>inactive
+* bool default false</title></a>
+
+<!-- ============= Table 'organization' ============= -->
+<rect class='table' x='688' y='40' width='128' height='128' rx='8' ry='8' style='stroke:none'/>
+<path d='M 688.00 68.00 L 688.00 48.00 Q 688.00 40.00 696.00 40.00 L 808.00 40.00 Q 816.00 40.00 816.00 48.00 L 816.00 68.00 L688.00 68.00 ' style='fill:url(#tbg_bfbff5);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='688' y='40' width='128' height='128' rx='8' ry='8' style='fill:none;stroke:#bebee9'/>
+<line class='delim' x1='688.000000' y1='68.000000' x2='816.000000' y2='68.000000' style='stroke:#bebee9'/>
+<line class='delim' x1='704.000000' y1='68.000000' x2='704.000000' y2='168.000000' style='stroke:#bebee9'/>
+<line class='delim' x1='804.000000' y1='68.000000' x2='804.000000' y2='168.000000' style='stroke:#bebee9'/>
+<a xlink:href='#organization'><text x='715' y='60'>organization</text><title>Table fbkt_login.organization</title></a>
+  <use id='nn' x='690' y='77' xlink:href='#nn'/><a xlink:href='#organization.id'><use id='pk' x='690' y='76' xlink:href='#pk'/><title>Pk pk_organization ( id ) </title></a>
+<a xlink:href='#organization.id'><text id='fbkt_login.organization.id' x='707' y='87' onmouseover="hghl(['contact_fk_contact_organization','facility_fk_facility_organization','license_fk_license_organization','organization_reference_fk_organization_reference_referenced_organization','organization_reference_fk_organization_reference_referencing_organization'])" onmouseout="uhghl(['contact_fk_contact_organization','facility_fk_facility_organization','license_fk_license_organization','organization_reference_fk_organization_reference_referenced_organization','organization_reference_fk_organization_reference_referencing_organization'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#organization.id'><use id='ref' x='804' y='76' xlink:href='#ref'/><title>Referred by contact ( organization_id -&gt; id ) 
+Referred by facility ( organization_id -&gt; id ) 
+Referred by license ( organization_id -&gt; id ) 
+Referred by organization_reference ( referenced_organization_id -&gt; id ) 
+Referred by organization_reference ( referencing_organization_id -&gt; id ) </title></a>
+  <use id='nn' x='690' y='93' xlink:href='#nn'/><a xlink:href='#organization.uid'><use id='unq' x='690' y='92' xlink:href='#unq'/><title>Unq organization_uid_key ( uid ) </title></a>
+<a xlink:href='#organization.uid'><text id='fbkt_login.organization.uid' x='707' y='103'>uid</text><title>uid
+* uuid default uuid_generate_v4()</title></a>
+  <use id='nn' x='690' y='109' xlink:href='#nn'/><a xlink:href='#organization.name'><text id='fbkt_login.organization.name' x='707' y='119'>name</text><title>name
+* text</title></a>
+  <use id='nn' x='690' y='125' xlink:href='#nn'/><a xlink:href='#organization.attributes_json'><text id='fbkt_login.organization.attributes_json' x='707' y='135'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+  <a xlink:href='#organization.location_id'><text id='fbkt_login.organization.location_id' x='707' y='151' onmouseover="hghl(['organization_fk_organization_location'])" onmouseout="uhghl(['organization_fk_organization_location'])">location_id</text><title>location_id
+integer</title></a>
+<a xlink:href='#organization.location_id'><use id='fk' x='804' y='140' xlink:href='#fk'/><title>References location ( location_id -&gt; id ) </title></a>
+
+<!-- ============= Table 'contact' ============= -->
+<rect class='table' x='688' y='552' width='128' height='224' rx='8' ry='8' style='stroke:none'/>
+<path d='M 688.00 580.00 L 688.00 560.00 Q 688.00 552.00 696.00 552.00 L 808.00 552.00 Q 816.00 552.00 816.00 560.00 L 816.00 580.00 L688.00 580.00 ' style='fill:url(#tbg_f5ddbf);stroke:1;stroke-opacity:0.1;' />
+<rect class='table' x='688' y='552' width='128' height='224' rx='8' ry='8' style='fill:none;stroke:#e9d6be'/>
+<line class='delim' x1='688.000000' y1='580.000000' x2='816.000000' y2='580.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='704.000000' y1='580.000000' x2='704.000000' y2='776.000000' style='stroke:#e9d6be'/>
+<line class='delim' x1='804.000000' y1='580.000000' x2='804.000000' y2='776.000000' style='stroke:#e9d6be'/>
+<a xlink:href='#contact'><text x='727' y='572'>contact</text><title>Table fbkt_login.contact</title></a>
+  <use id='nn' x='690' y='589' xlink:href='#nn'/><a xlink:href='#contact.id'><use id='pk' x='690' y='588' xlink:href='#pk'/><title>Pk pk_contact ( id ) </title></a>
+<a xlink:href='#contact.id'><text id='fbkt_login.contact.id' x='707' y='599' onmouseover="hghl(['license_fk_license_contact','user_login_fk_user_login_contact'])" onmouseout="uhghl(['license_fk_license_contact','user_login_fk_user_login_contact'])">id</text><title>id
+* serial</title></a>
+<a xlink:href='#contact.id'><use id='ref' x='804' y='588' xlink:href='#ref'/><title>Referred by license ( contact_id -&gt; id ) 
+Referred by user_login ( contact_id -&gt; id ) </title></a>
+  <use id='nn' x='690' y='605' xlink:href='#nn'/><a xlink:href='#contact.uid'><use id='unq' x='690' y='604' xlink:href='#unq'/><title>Unq contact_uid_key ( uid ) </title></a>
+<a xlink:href='#contact.uid'><text id='fbkt_login.contact.uid' x='707' y='615'>uid</text><title>uid
+* uuid default uuid_generate_v4()</title></a>
+  <use id='nn' x='690' y='621' xlink:href='#nn'/><a xlink:href='#contact.organization_id'><text id='fbkt_login.contact.organization_id' x='707' y='631' onmouseover="hghl(['contact_fk_contact_organization'])" onmouseout="uhghl(['contact_fk_contact_organization'])">organization_id</text><title>organization_id
+* integer</title></a>
+<a xlink:href='#contact.organization_id'><use id='fk' x='804' y='620' xlink:href='#fk'/><title>References organization ( organization_id -&gt; id ) </title></a>
+  <use id='nn' x='690' y='637' xlink:href='#nn'/><a xlink:href='#contact.first_name'><text id='fbkt_login.contact.first_name' x='707' y='647'>first_name</text><title>first_name
+* text</title></a>
+  <use id='nn' x='690' y='653' xlink:href='#nn'/><a xlink:href='#contact.last_name'><text id='fbkt_login.contact.last_name' x='707' y='663'>last_name</text><title>last_name
+* text</title></a>
+  <a xlink:href='#contact.phone_number'><text id='fbkt_login.contact.phone_number' x='707' y='679'>phone_number</text><title>phone_number
+text</title></a>
+  <a xlink:href='#contact.email'><text id='fbkt_login.contact.email' x='707' y='695'>email</text><title>email
+text</title></a>
+  <a xlink:href='#contact.job_title'><text id='fbkt_login.contact.job_title' x='707' y='711'>job_title</text><title>job_title
+text</title></a>
+  <use id='nn' x='690' y='717' xlink:href='#nn'/><a xlink:href='#contact.attributes_json'><text id='fbkt_login.contact.attributes_json' x='707' y='727'>attributes_json</text><title>attributes_json
+* jsonb default '{}'::jsonb</title></a>
+  <a xlink:href='#contact.location_id'><text id='fbkt_login.contact.location_id' x='707' y='743' onmouseover="hghl(['contact_fk_contact_location'])" onmouseout="uhghl(['contact_fk_contact_location'])">location_id</text><title>location_id
+integer</title></a>
+<a xlink:href='#contact.location_id'><use id='fk' x='804' y='732' xlink:href='#fk'/><title>References location ( location_id -&gt; id ) </title></a>
+  <use id='nn' x='690' y='749' xlink:href='#nn'/><a xlink:href='#contact.inactive'><text id='fbkt_login.contact.inactive' x='707' y='759'>inactive</text><title>inactive
+* bool default false</title></a>
+
+</g></svg></div>
+
+
+<br/><br/>
+<div class='section-header'><a name='application'><h2>Table application</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='application.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><a name='application.uid'>uid</a></td>
+		<td> uuid   DEFAULT uuid_generate_v4() </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.version'>version</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.require_promo_code_for_registration'>require&#95;promo&#95;code&#95;for&#95;registration</a></td>
+		<td> bool   DEFAULT false </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.default_new_registration_license_key'>default&#95;new&#95;registration&#95;license&#95;key</a></td>
+		<td> text   DEFAULT 'ADMIN'::text </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='application.default_new_user_licensekey'>default&#95;new&#95;user&#95;licensekey</a></td>
+		<td> text   DEFAULT 'USER'::text </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;application</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>application&#95;uid&#95;key</td>
+		<td> ON uid</td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='license_type'><h2>Table license_type</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='license_type.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license_type.application_id'>application&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='license_type.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='license_type.license_type_key'>license&#95;type&#95;key</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='license_type.active'>active</a></td>
+		<td> bool   DEFAULT true </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;license&#95;type</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_type_application</td>
+		<td > ( application&#95;id ) ref <a href='#application'>application</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='organization_reference'><h2>Table organization_reference</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg></td>
+		<td><a name='organization_reference.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='organization_reference.referencing_organization_id'>referencing&#95;organization&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='organization_reference.referenced_organization_id'>referenced&#95;organization&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='organization_reference.organization_reference_type'>organization&#95;reference&#95;type</a></td>
+		<td> &quot;fbkt&#95;login&quot;&#46;&quot;organization&#95;reference&#95;type&quot;   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;organization&#95;reference</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_organization_reference_referenced_organization</td>
+		<td > ( referenced&#95;organization&#95;id ) ref <a href='#organization'>organization</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_organization_reference_referencing_organization</td>
+		<td > ( referencing&#95;organization&#95;id ) ref <a href='#organization'>organization</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='promo_code'><h2>Table promo_code</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='promo_code.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='promo_code.license_type_id'>license&#95;type&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='promo_code.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='promo_code.expiration_date'>expiration&#95;date</a></td>
+		<td> timestamp   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><a name='promo_code.the_promo_code'>the&#95;promo&#95;code</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='promo_code.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;promo&#95;code</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>promo&#95;code&#95;the&#95;promo&#95;code&#95;key</td>
+		<td> ON the&#95;promo&#95;code</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_promo_code_license_type</td>
+		<td > ( license&#95;type&#95;id ) ref <a href='#license&#95;type'>license&#95;type</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='user_login'><h2>Table user_login</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='user_login.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='user_login.contact_id'>contact&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='user_login.login'>login</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='user_login.hashed_password'>hashed&#95;password</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='user_login.entity_filters_json'>entity&#95;filters&#95;json</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;user&#95;login</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_user_login_contact</td>
+		<td > ( contact&#95;id ) ref <a href='#contact'>contact</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='license'><h2>Table license</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='license.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license.organization_id'>organization&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license.contact_id'>contact&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license.license_type_id'>license&#95;type&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='license.activation_date'>activation&#95;date</a></td>
+		<td> timestamp   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='license.expiration_date'>expiration&#95;date</a></td>
+		<td> timestamp   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license.promo_code_id'>promo&#95;code&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='license.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='license.status'>status</a></td>
+		<td> &quot;fbkt&#95;login&quot;&#46;&quot;license&#95;status&quot;   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;license</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_contact</td>
+		<td > ( contact&#95;id ) ref <a href='#contact'>contact</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_status_type</td>
+		<td > (  ) ref <a href='#permission'>permission</a> () </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_type</td>
+		<td > ( license&#95;type&#95;id ) ref <a href='#license&#95;type'>license&#95;type</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_organization</td>
+		<td > ( organization&#95;id ) ref <a href='#organization'>organization</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_promo_code</td>
+		<td > ( promo&#95;code&#95;id ) ref <a href='#promo&#95;code'>promo&#95;code</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='license_permission'><h2>Table license_permission</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg></td>
+		<td><a name='license_permission.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license_permission.license_id'>license&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='license_permission.permission_id'>permission&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;license&#95;permission</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_permission_license</td>
+		<td > ( license&#95;id ) ref <a href='#license'>license</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_license_permission_permission</td>
+		<td > ( permission&#95;id ) ref <a href='#permission'>permission</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='permission'><h2>Table permission</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='permission.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='permission.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;permission</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='login_token'><h2>Table login_token</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg></td>
+		<td><a name='login_token.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='login_token.user_login_id'>user&#95;login&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='login_token.token'>token</a></td>
+		<td> uuid   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='login_token.expiration_date'>expiration&#95;date</a></td>
+		<td> timestamp   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;login&#95;token</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_login_token_user_login</td>
+		<td > ( user&#95;login&#95;id ) ref <a href='#user&#95;login'>user&#95;login</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='location'><h2>Table location</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='location.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><a name='location.uid'>uid</a></td>
+		<td> uuid   DEFAULT uuid_generate_v4() </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.geo_json'>geo&#95;json</a></td>
+		<td> jsonb   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.geom'>geom</a></td>
+		<td> geometry   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.address_1'>address&#95;1</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.address_2'>address&#95;2</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.city'>city</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.county'>county</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.state'>state</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.country'>country</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='location.postal_code'>postal&#95;code</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='location.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;location</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>location&#95;uid&#95;key</td>
+		<td> ON uid</td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='facility'><h2>Table facility</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg></td>
+		<td><a name='facility.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='facility.organization_id'>organization&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='facility.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='facility.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='facility.location_id'>location&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='facility.inactive'>inactive</a></td>
+		<td> bool   DEFAULT false </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;facility</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_facility_location</td>
+		<td > ( location&#95;id ) ref <a href='#location'>location</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_facility_organization</td>
+		<td > ( organization&#95;id ) ref <a href='#organization'>organization</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='organization'><h2>Table organization</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='organization.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><a name='organization.uid'>uid</a></td>
+		<td> uuid   DEFAULT uuid_generate_v4() </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='organization.name'>name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='organization.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='organization.location_id'>location&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;organization</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>organization&#95;uid&#95;key</td>
+		<td> ON uid</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_organization_location</td>
+		<td > ( location&#95;id ) ref <a href='#location'>location</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<div class='section-header'><a name='contact'><h2>Table contact</h2></a></div>
+<table class='bordered'>
+<thead>
+<tr><th colspan='4'>Columns</a></th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='contact.id'>id</a></td>
+		<td> serial   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><a name='contact.uid'>uid</a></td>
+		<td> uuid   DEFAULT uuid_generate_v4() </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*<svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='contact.organization_id'>organization&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='contact.first_name'>first&#95;name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='contact.last_name'>last&#95;name</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='contact.phone_number'>phone&#95;number</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='contact.email'>email</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='contact.job_title'>job&#95;title</a></td>
+		<td> text   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='contact.attributes_json'>attributes&#95;json</a></td>
+		<td> jsonb   DEFAULT '{}'::jsonb </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='contact.location_id'>location&#95;id</a></td>
+		<td> integer   </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td><a name='contact.inactive'>inactive</a></td>
+		<td> bool   DEFAULT false </td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;contact</td>
+		<td> ON id</td>
+		<td>  </td>
+	</tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>contact&#95;uid&#95;key</td>
+		<td> ON uid</td>
+		<td>  </td>
+	</tr>
+<tr><th colspan='4'>Foreign Keys</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_contact_location</td>
+		<td > ( location&#95;id ) ref <a href='#location'>location</a> (id) </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_contact_organization</td>
+		<td > ( organization&#95;id ) ref <a href='#organization'>organization</a> (id) </td>
+		<td>  </td>
+	</tr>
+</tbody>
+</table>
+
+<p align='right'><a href='http://www.dbschema.com' style='color:#aaa'>Powered by DbSchema</a></p></body></html>
