@@ -7,6 +7,7 @@ module.exports = {
 	type: Contact,
 	args: {
 		id: 							{type: gql.GraphQLInt},
+    organizationId:   {type: gql.GraphQLInt},
 		firstName:				{type:	gql.GraphQLString},
 		lastName:					{type:	gql.GraphQLString},
 		email:						{type:	gql.GraphQLString},
@@ -15,7 +16,7 @@ module.exports = {
 		inactive:					{type:	gql.GraphQLBoolean}
 	},
 	resolve(contact, params){
-		return fbkt().dbTree.fbkt_login.table.contact.findOne({
+		return fbkt().dbTree.fbkt_login.table.contact.findAll({
 			params: params
 		});
 	}
