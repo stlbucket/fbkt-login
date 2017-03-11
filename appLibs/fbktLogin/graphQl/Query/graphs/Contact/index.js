@@ -12,10 +12,7 @@ module.exports = new gql.GraphQLObjectType({
 	name: 'Contact',
 	fields: () => ({
 		id: {
-			type: gql.GraphQLID,
-			resolve(contact){
-				return contact.id
-			}
+			type: gql.GraphQLInt,
 		},
 		firstName: {
 			type: gql.GraphQLString

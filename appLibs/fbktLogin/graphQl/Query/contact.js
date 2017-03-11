@@ -4,7 +4,7 @@ const Contact = require('./graphs/Contact');
 
 
 module.exports = {
-	type: Contact,
+	type: new gql.GraphQLList(Contact),
 	args: {
 		id: 							{type: gql.GraphQLInt},
     organizationId:   {type: gql.GraphQLInt},
@@ -17,7 +17,7 @@ module.exports = {
 	},
 	resolve(contact, params){
 		return fbkt().dbTree.fbkt_login.table.contact.findAll({
-			params: params
+			params: params,
 		});
 	}
 };
