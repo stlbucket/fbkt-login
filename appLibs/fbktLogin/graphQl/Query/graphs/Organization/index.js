@@ -23,7 +23,7 @@ module.exports = new gql.GraphQLObjectType({
 		contacts:	{
 			type: new gql.GraphQLList(ContactInfo),
 			resolve:	(organization)=>{
-				return fbkt().dbTree.fbkt_login.table.contact.query({
+				return fbkt().dbTree.fbkt_login.table.contact.findAll({
 					params:	{
 						organizationId: organization.id
 					}
