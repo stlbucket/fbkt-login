@@ -33,7 +33,6 @@ module.exports = callInfo => {
         }
       },
       'loadOrganizationContacts': callInfo => {
-        console.log('BLAH', callInfo);
         const contacts = callInfo.params.contacts;
         return Promise.mapSeries(
           contacts,
@@ -61,37 +60,14 @@ module.exports = callInfo => {
           return callInfo.params.dbOrganization;
         }
       },
-      'report': callInfo => {
+      'returnComposite': callInfo => {
         fbkt().clog('callInfo.params.dbOrganization.id', callInfo.params, true);
         return fbkt().dbTree.fbkt_login.composite.organization.findOne({
           params: {
             id: callInfo.params.dbOrganization.id
           }
         })
-          .then(composite => {
-            fbkt().clog('composite', composite, true);
-            process.exit();
-          })
       }
-      // 'loadLocation': callInfo => {
-      //   if (callInfo.params.location) {
-      //     return loadLocation(callInfo.params.location)
-      //       .then(dbLocation => {
-      //         const dbOrganizationToUpdate = Object.assign(callInfo.params.dbOrganization, {locationId: dbLocation.id});
-      //         return fbkt().dbTree.fbkt_login.table.organization.save({
-      //           params: dbOrganizationToUpdate
-      //         })
-      //           .then(dbOrganization => {
-      //             return Object.assign(callInfo.params.dbOrganizationWithContacts, {
-      //               locationId: dbLocation.id,
-      //               location: dbLocation
-      //             });
-      //           })
-      //       });
-      //   } else {
-      //     return callInfo.params.dbOrganization;
-      //   }
-      // }
     }
   }, callInfo);
 };

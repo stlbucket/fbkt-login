@@ -1,6 +1,8 @@
 "use strict";
+const Promise = require('bluebird');
 const fbkt = require('fbkt');
 const loadLocation = require('../loadLocation');
+const loadLicense = require('../loadLicense');
 
 module.exports = callInfo => {
   return fbkt().FbktPipe({
@@ -37,24 +39,38 @@ module.exports = callInfo => {
         if (callInfo.params.location) {
           return loadLocation(callInfo.params.location)
             .then(dbLocation => {
-              const dbContactUpdate = Object.assign(callInfo.params.dbContact, {locationId: dbLocation.id});
+              const dbContactToUpdate = Object.assign(callInfo.params.dbContact, {locationId: dbLocation.id});
               return fbkt().dbTree.fbkt_login.table.contact.save({
-                params: dbContactUpdate
+                params: dbContactToUpdate
               })
             })
         } else {
           return callInfo.params.dbContact;
         }
       },
+      'loadLicense': callInfo => {
+        if (callInfo.params.licenses) {
+          return Promise.mapSeries(
+            callInfo.params.licenses,
+            license => {
+              const licenseToLoad = Object.assign(license, {
+                contactId: callInfo.params.dbContact.id,
+                organizationId: callInfo.params.dbContact.organizationId
+              });
+              return loadLicense(licenseToLoad);
+            }
+          );
+        }
+      },
       'returnComposite': callInfo => {
-        fbkt().clog('DB CONTACT', callInfo, true);
+        // fbkt().clog('DB CONTACT', callInfo, true);
         return fbkt().dbTree.fbkt_login.composite.contact.findOne({
           params: {
             id: callInfo.params.dbContact.id
           }
         })
           .then(composite => {
-            fbkt().clog('COMPOSITE', callInfo, true);
+            // fbkt().clog('COMPOSITE', callInfo, true);
             // process.exit();
           })
       }

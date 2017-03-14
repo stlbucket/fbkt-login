@@ -4,7 +4,13 @@ module.exports = {
 	, tableName: 'organization'
 	, selectFields: 'id, name'
 	, components: [
-		{
+    {
+      componentType: 'DEPENDENCY'
+      , schemaName: 'fbkt_login'
+      , tableName: 'location'
+      , fkField: 'location_id'
+    },
+    {
 			componentType: 'AGGREGATION'
 			, schemaName:  'fbkt_login'
 			, tableName:   'contact'
