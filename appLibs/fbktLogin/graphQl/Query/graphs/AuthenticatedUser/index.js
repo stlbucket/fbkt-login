@@ -5,7 +5,7 @@ const fbkt = require('fbkt');
 const graphqlHTTP = require('express-graphql');
 const gql = require("graphql");
 
-module.exports = new gql.GraphQLObjectType({
+const authenticatedUser = new gql.GraphQLObjectType({
 	name: 'AuthenticatedUser',
 	fields: () => ({
 		id: {
@@ -34,3 +34,5 @@ module.exports = new gql.GraphQLObjectType({
 		},
 	})
 });
+
+module.exports = authenticatedUser;

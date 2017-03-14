@@ -87,30 +87,30 @@ module.exports = [
       },
     ]
   },
-  // {
-  //   name: 'Funktion Junktion',
-  //   location: {
-  //     name: "Rocco's",
-  //     geoJson: {type: "Point", coordinates: [-122.345135, 47.614240]}
-  //   },
-  //   contacts: [
-  //     {
-  //       licenses: [
-  //         {
-  //           licenseTypeKey: 'USER',
-  //         }
-  //       ],
-  //       useDefaultPassword: true,
-  //       email: 'functionbucket+funktion_junktion@gmail.com',
-  //       firstName: 'FUNKTION',
-  //       lastName: 'JUNKTION',
-  //       phoneNumber: '',
-  //       jobTitle: '',
-  //       location: {
-  //         name: "Un Bien",
-  //         geoJson: {type: "Point", coordinates: [-122.406122, 47.675028]}
-  //       }
-  //     },
-  //   ]
-  // }
-]
+  {
+    name: 'Funktion Junktion',
+    location: {
+      name: "Rocco's",
+      geoJson: {type: "Point", coordinates: [-122.345135, 47.614240]}
+    },
+    contacts: [
+      {
+        licenses: [
+          {
+            licenseTypeKey: 'USER',
+          }
+        ],
+        useDefaultPassword: true,
+        email: 'functionbucket+funktion_junktion@gmail.com',
+        firstName: 'FUNKTION',
+        lastName: 'JUNKTION',
+        phoneNumber: '',
+        jobTitle: '',
+        location: {
+          name: "Un Bien",
+          geoJson: {type: "Point", coordinates: [-122.406122, 47.675028]}
+        }
+      },
+    ]
+  }
+];

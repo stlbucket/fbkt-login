@@ -9,7 +9,7 @@ const bookshelf = require('bookshelf');
 
 describe('your module', () => {
 
-  it.only('this', function(done){
+  it.skip('this', function(done){
     fbkt().dbTree.fbkt_login.table.contact.getAll()
       .then(result => {
         fbkt().clog('CONTACCTS', result, true);
