@@ -1,9 +1,5 @@
 "use strict";
-const R = require('ramda');
-const Promise = require('bluebird');
 const fbkt = require('fbkt');
-
-// const applicationCompositeLoader = require('./loader');
 
 const loadApplication = require('../../../actions/loadApplication');
 
