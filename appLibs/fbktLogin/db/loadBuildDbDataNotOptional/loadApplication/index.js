@@ -13,7 +13,7 @@ module.exports = (callInfo)=> {
 			loadApplication:	callInfo => {
         return loadApplication(callInfo)
           .then(result => {
-            fbkt().clog('LOADED APPLICATION', result, true);
+            fbkt.clog('LOADED APPLICATION', result, true);
           });
       }
 		}

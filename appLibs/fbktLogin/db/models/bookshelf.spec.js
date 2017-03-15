@@ -12,7 +12,7 @@ describe('your module', () => {
   it.skip('this', function(done){
     fbkt().dbTree.fbkt_login.table.contact.getAll()
       .then(result => {
-        fbkt().clog('CONTACCTS', result, true);
+        fbkt.clog('CONTACCTS', result, true);
         done();
       })
   });
@@ -29,7 +29,7 @@ describe('your module', () => {
 
         Contact.fetchAll()
           .then(allContacts => {
-            fbkt().clog('ALL CONTACTS', allContacts, true);
+            fbkt.clog('ALL CONTACTS', allContacts, true);
             done();
           })
       });
@@ -38,7 +38,7 @@ describe('your module', () => {
     //   sql:  'select * from fbkt_login.contact'
     // })
     //   .then(result => {
-    //     fbkt().clog('SQL RESULT', result.rows, true);
+    //     fbkt.clog('SQL RESULT', result.rows, true);
     //     done();
     //   });
   });

@@ -12,7 +12,7 @@ module.exports = (callInfo)=> {
 		pipelineParams: {},
 		pipelineSteps:  {
 			"newFunction": (callInfo)=> {
-				fbkt().clog('testExtension', callInfo);
+				fbkt.clog('testExtension', callInfo);
 				process.exit();
 			}
 		}

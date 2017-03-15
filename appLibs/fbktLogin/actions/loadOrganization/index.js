@@ -39,7 +39,7 @@ module.exports = callInfo => {
           contacts,
           contact => {
             const contactToLoad = Object.assign(contact, {organizationId: callInfo.params.dbOrganization.id});
-            // fbkt().clog('contactToLoad', contactToLoad, true); process.exit();
+            // fbkt.clog('contactToLoad', contactToLoad, true); process.exit();
             return loadContact({
               params: contactToLoad
             });
@@ -47,7 +47,7 @@ module.exports = callInfo => {
         );
       },
       'loadLocation': callInfo => {
-        // fbkt().clog('loadLocation', callInfo, true); process.exit();
+        // fbkt.clog('loadLocation', callInfo, true); process.exit();
 
         if (callInfo.params.location) {
           return loadLocation(callInfo.params.location)

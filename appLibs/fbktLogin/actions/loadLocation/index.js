@@ -14,7 +14,7 @@ module.exports = callInfo => {
         });
       },
       'loadLocation': callInfo => {
-        // fbkt().clog('LOAD LOCATION', callInfo.params, true);
+        // fbkt.clog('LOAD LOCATION', callInfo.params, true);
         if (callInfo.params.existing) {
           return callInfo.params.existing;
         } else {

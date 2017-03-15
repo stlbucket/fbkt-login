@@ -20,7 +20,7 @@ module.exports = callInfo => {
         });
       },
       'loadContact': callInfo => {
-        // fbkt().clog('LOAD CONTACT', callInfo.params, true);
+        // fbkt.clog('LOAD CONTACT', callInfo.params, true);
         if (callInfo.params.existing) {
           return callInfo.params.existing;
         } else {

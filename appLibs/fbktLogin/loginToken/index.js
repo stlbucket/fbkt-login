@@ -6,7 +6,7 @@ const fbkt = require('fbkt');
 
 
 module.exports = (callInfo)=> {
-	// fbkt().clog('LOGIN TOKEN', callInfo);
+	// fbkt.clog('LOGIN TOKEN', callInfo);
 	return fbkt().FbktPipe({
 		name:           'fbktLogin/loginToken/',
 		filename:       __filename,
@@ -22,7 +22,7 @@ module.exports = (callInfo)=> {
 					expectScalar:			true
 				})
 					.then(function(authenticatedUser){
-						//fbkt().clog('TOKEN AUTHENTICATED USER', authenticatedUser);
+						//fbkt.clog('TOKEN AUTHENTICATED USER', authenticatedUser);
 						if (!authenticatedUser) return new Error('BAD LOGIN TOKEN');
 						else return _.mapKeys(authenticatedUser, function(value, key){
 							return _.camelCase(key);

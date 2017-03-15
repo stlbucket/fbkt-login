@@ -9,10 +9,10 @@ module.exports = {
 			enabled: true,
 			auth:    'none',
 			handler: function (callInfo) {
-				// fbkt().clog('LOGIN USER', callInfo.params);
+				// fbkt.clog('LOGIN USER', callInfo.params);
 				return loginUser(callInfo)
 					.catch((error)=> {
-						// fbkt().clog('LOGIN ERROR', error);
+						// fbkt.clog('LOGIN ERROR', error);
 						if (error.name === "FbktBadLoginOrPassword") return error.toString();
 						throw error;
 					});

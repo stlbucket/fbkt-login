@@ -15,7 +15,7 @@ module.exports = (callInfo)=> {
 		},
 		pipelineSteps:  {
 			"loadOrganizations": (callInfo)=>{
-        fbkt().clog('LOAD ORGS', callInfo.params.organizationsAndUsers, true);
+        fbkt.clog('LOAD ORGS', callInfo.params.organizationsAndUsers, true);
 				return Promise.mapSeries(
           callInfo.params.organizationsAndUsers,
 					(organization)=>{
@@ -24,7 +24,7 @@ module.exports = (callInfo)=> {
 				);
 			},
 			"report":	(callInfo)=>{
-				fbkt().clog('LOADED ORGS', callInfo.params.loadedOrganizations, true);
+				fbkt.clog('LOADED ORGS', callInfo.params.loadedOrganizations, true);
 			}
 		}
 	}, callInfo || {});

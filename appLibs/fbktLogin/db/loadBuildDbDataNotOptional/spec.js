@@ -20,7 +20,7 @@ describe(__filename, function () {
 			params: params
 		})
 			.then((result)=>{
-				// fbkt().clog('PIPE RESULT', result, true);
+				// fbkt.clog('PIPE RESULT', result, true);
 				done();
 			})
 			.catch((error)=>{

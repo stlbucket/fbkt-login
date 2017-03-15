@@ -15,7 +15,7 @@ module.exports = callInfo => {
     },
     pipelineSteps: {
       'findExisting': callInfo => {
-        fbkt().clog('LOAD APPLICATION', callInfo, true);
+        fbkt.clog('LOAD APPLICATION', callInfo, true);
 
         return fbkt().dbTree.fbkt_login.table.application.findOne({
           params: {
@@ -41,7 +41,7 @@ module.exports = callInfo => {
           licenseTypes,
           licenseType => {
             const licenseTypeToLoad = Object.assign(licenseType, {applicationId: callInfo.params.dbApplication.id});
-            // fbkt().clog('contactToLoad', contactToLoad, true); process.exit();
+            // fbkt.clog('contactToLoad', contactToLoad, true); process.exit();
             return loadLicenseType({
               params: licenseTypeToLoad
             });

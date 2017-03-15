@@ -46,12 +46,12 @@ describe.skip(__filename, function () {
       recordPipe: false
     })
       .then((result)=> {
-        fbkt().clog('FUNCTION BUCKET WORKSPACE', pipe.ws, true);
-        fbkt().clog('RESULT', result, true);
+        fbkt.clog('FUNCTION BUCKET WORKSPACE', pipe.ws, true);
+        fbkt.clog('RESULT', result, true);
         done();
       })
       .catch(error=> {
-        // fbkt().clog('UNEXPECTED ERROR', error);
+        // fbkt.clog('UNEXPECTED ERROR', error);
         done(error);
       });
 

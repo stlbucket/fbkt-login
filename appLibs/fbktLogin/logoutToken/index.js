@@ -12,7 +12,7 @@ module.exports = (callInfo)=> {
 		pipelineParams: {},
 		pipelineSteps:  {
 			"logoutToken": (callInfo)=> {
-				//fbkt().clog('LOGOUT TOKEN BEGIN', self.options);
+				//fbkt.clog('LOGOUT TOKEN BEGIN', self.options);
 				if (!callInfo.user.token){
 					return new Error('BAD LOGIN TOKEN: '+JSON.stringify(callInfo));
 				}

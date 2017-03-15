@@ -21,7 +21,7 @@ describe(__filename, function () {
 			params: params
 		})
 			.then((result)=> {
-				// fbkt().clog('LOGIN RESULT', result.message, true);
+				// fbkt.clog('LOGIN RESULT', result.message, true);
 				done(result);
 			})
 			.catch((expectAnError)=> {
@@ -43,7 +43,7 @@ describe(__filename, function () {
 			params: params
 		})
 			.then((result)=> {
-				fbkt().clog('LOGIN RESULT', result, true);
+				fbkt.clog('LOGIN RESULT', result, true);
 				done();
 			});
 	});
@@ -60,7 +60,7 @@ describe(__filename, function () {
 			params: params
 		})
 			.then((result)=> {
-				// fbkt().clog('LOGIN RESULT', result, true);
+				// fbkt.clog('LOGIN RESULT', result, true);
 				result.id.should.be.ok;
 				token = result.token;
 				return loginToken({
@@ -70,7 +70,7 @@ describe(__filename, function () {
 				});
 			})
 			.then((tokenResult)=>{
-				// fbkt().clog('TOKEN LOGIN RESULT', tokenResult, true);
+				// fbkt.clog('TOKEN LOGIN RESULT', tokenResult, true);
 				tokenResult.id.should.be.ok;
 				return logoutToken({
 					user:	{
@@ -79,7 +79,7 @@ describe(__filename, function () {
 				});
 			})
 			.then((logoutTokenResult)=>{
-				// fbkt().clog('TOKEN LOGOUT RESULT', logoutTokenResult, true);
+				// fbkt.clog('TOKEN LOGOUT RESULT', logoutTokenResult, true);
 				logoutTokenResult.should.equal('Successfully Logged Out');
 				return loginToken({
 					user:	{
@@ -88,7 +88,7 @@ describe(__filename, function () {
 				});
 			})
 			.then((tokenShouldFailResult)=>{
-				// fbkt().clog('TOKEN LOGIN SHOULD FAIL RESULT', tokenShouldFailResult, true);
+				// fbkt.clog('TOKEN LOGIN SHOULD FAIL RESULT', tokenShouldFailResult, true);
 				R.is(Error, tokenShouldFailResult).should.be.ok;
 				tokenShouldFailResult.message.should.equal('BAD LOGIN TOKEN');
 				done();
