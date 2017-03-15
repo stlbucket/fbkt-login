@@ -1,5 +1,6 @@
 "use strict";
 const Promise = require('bluebird');
+const graphql = require('graphql').graphql;
 const fbkt = require('fbkt');
 const loadLocation = require('../loadLocation');
 const loadLicense = require('../loadLicense');
@@ -64,16 +65,42 @@ module.exports = callInfo => {
       },
       'returnComposite': callInfo => {
         // fbkt().clog('DB CONTACT', callInfo, true);
-        return fbkt().dbTree.fbkt_login.composite.contact.findOne({
-          params: {
-            id: callInfo.params.dbContact.id
-          }
-        })
-          .then(composite => {
-            // fbkt().clog('COMPOSITE', callInfo, true);
-            // process.exit();
-          })
+        return graphql(fbkt().graphqlSchema, graphQlQuery);
+
       }
+      // 'returnComposite': callInfo => {
+      //   // fbkt().clog('DB CONTACT', callInfo, true);
+      //   return fbkt().dbTree.fbkt_login.composite.contact.findOne({
+      //     params: {
+      //       id: callInfo.params.dbContact.id
+      //     }
+      //   })
+      //     .then(composite => {
+      //       // fbkt().clog('COMPOSITE', callInfo, true);
+      //       // process.exit();
+      //     })
+      // }
     }
   }, callInfo);
 };
+
+const graphQlQuery = `
+query {
+  contact(id: 2){
+    id,
+    email,
+    location {
+      name,
+      geoJson {
+        type
+        coordinates
+      },
+      city
+    },
+    licenses {
+      licenseType {
+        licenseTypeKey
+      }
+    }
+  }
+}`;

@@ -5,7 +5,7 @@ const fbkt = require('fbkt');
 const graphqlHTTP = require('express-graphql');
 const gql = require("graphql");
 
-const ContactInfo = require('../ContactInfo');
+const Contact = require('../Contact');
 const Location = require('../Location');
 
 module.exports = new gql.GraphQLObjectType({
@@ -21,7 +21,7 @@ module.exports = new gql.GraphQLObjectType({
 			type: gql.GraphQLString
 		},
 		contacts:	{
-			type: new gql.GraphQLList(ContactInfo),
+			type: new gql.GraphQLList(Contact),
 			resolve:	(organization)=>{
 				return fbkt().dbTree.fbkt_login.table.contact.findAll({
 					params:	{

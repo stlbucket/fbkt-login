@@ -1,21 +1,6 @@
 "use strict";
-const R = require('ramda');
-const Promise = require('bluebird');
-const fbkt = require('fbkt');
-const graphqlHTTP = require('express-graphql');
 const gql = require("graphql");
-
-const GeoJsonPoint = new gql.GraphQLObjectType({
-	name:   "GeoJsonPoint",
-	fields: () => ({
-		type:      {
-			type: 				gql.GraphQLString
-		},
-		coordinates:      {
-			type: 				new gql.GraphQLList(gql.GraphQLFloat)
-		},
-	})
-});
+const GeoJsonPoint = require('../GeoJsonPoint');
 
 module.exports = new gql.GraphQLObjectType({
 	name: 'Location',
@@ -42,10 +27,10 @@ module.exports = new gql.GraphQLObjectType({
 			type: gql.GraphQLString
 		},
 		state: {
-			type: gql.GraphQLBoolean
+			type: gql.GraphQLString
 		},
 		postalCode: {
-			type: gql.GraphQLBoolean
+			type: gql.GraphQLString
 		},
 	})
 });

@@ -1,12 +1,10 @@
 "use strict";
-const R = require('ramda');
-const Promise = require('bluebird');
 const fbkt = require('fbkt');
-const graphqlHTTP = require('express-graphql');
 const gql = require("graphql");
 
 const OrganizationInfo = require('./OrganizationInfo');
 const Location = require('../Location');
+const License = require('../License');
 
 module.exports = new gql.GraphQLObjectType({
 	name: 'Contact',
@@ -42,6 +40,16 @@ module.exports = new gql.GraphQLObjectType({
 				});
 			}
 		},
+    licenses: {
+      type: new gql.GraphQLList(License),
+      resolve: (contact) => {
+        return fbkt().dbTree.fbkt_login.table.license.findAll({
+          params: {
+            contactId: contact.id
+          }
+        })
+      }
+    },
 		organization:	{
 			type:	OrganizationInfo,
 			resolve: (contact)=>{
