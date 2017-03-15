@@ -1,6 +1,6 @@
 {
   "name": "fbkt-login",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   "dependencies": {
     "colors": "^1.1.2",
     "dotenv-safe": "^4.0.3",
-    "fbkt": "^1.0.31",
-    "fbkt-pg": "^1.0.10",
+    "fbkt": "^2.0.0",
+    "fbkt-pg": "^2.0.0",
     "ramda": "^0.23.0"
   },
   "devDependencies": {
