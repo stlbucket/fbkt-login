@@ -3,6 +3,8 @@ const Promise = require('bluebird');
 const fbkt = require('fbkt');
 const gql = require("graphql");
 
+const PromoCode = require('../PromoCode');
+
 module.exports = new gql.GraphQLObjectType({
 	name: 'LicenseType',
 	fields: () => ({
@@ -35,6 +37,16 @@ module.exports = new gql.GraphQLObjectType({
           .then(result => {
             return result.permissions.filter(p => typeof p === 'string');
           })
+      }
+    },
+    promoCodes: {
+      type: new gql.GraphQLList(PromoCode),
+      resolve: licenseType => {
+        return fbkt().dbTree.fbkt_login.table.promo_code.findAll({
+          params: {
+            licenseTypeId: licenseType.id
+          }
+        })
       }
     }
 	})

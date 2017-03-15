@@ -48,21 +48,6 @@ module.exports = callInfo => {
           }
         );
       },
-      // 'loadLocation': callInfo => {
-      //   // fbkt().clog('loadLocation', callInfo, true); process.exit();
-      //
-      //   if (callInfo.params.location) {
-      //     return loadLocation(callInfo.params.location)
-      //       .then(dbLocation => {
-      //         const dbApplicationToUpdate = Object.assign(callInfo.params.dbApplication, {locationId: dbLocation.id});
-      //         return fbkt().dbTree.fbkt_login.table.application.save({
-      //           params: dbApplicationToUpdate
-      //         });
-      //       });
-      //   } else {
-      //     return callInfo.params.dbApplication;
-      //   }
-      // },
       'returnGraph': callInfo => {
         const graphQlQuery = `
 query {
@@ -72,7 +57,10 @@ query {
     licenseTypes {
       name,
       licenseTypeKey,
-      permissions
+      permissions,
+      promoCodes {
+        thePromoCode
+      }
     }
   }
 }

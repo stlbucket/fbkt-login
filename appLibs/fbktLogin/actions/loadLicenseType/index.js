@@ -2,6 +2,7 @@
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 const loadLicenseTypePermission = require('../loadLicenseTypePermission');
+const loadPromoCode = require('../loadPromoCode');
 
 module.exports = callInfo => {
   return fbkt().FbktPipe({
@@ -45,6 +46,18 @@ module.exports = callInfo => {
                 licenseTypeId:  callInfo.params.dbLicenseType.id,
                 permission: permission
               }
+            })
+          }
+        )
+      },
+      'loadPromoCodes': callInfo => {
+        const promoCodes = callInfo.params.promoCodes || [];
+        return Promise.mapSeries(
+          promoCodes,
+          promoCode => {
+            const promoCodeToLoad = Object.assign(promoCode, {licenseTypeId: callInfo.params.dbLicenseType.id});
+            return loadPromoCode({
+              params: promoCodeToLoad
             })
           }
         )

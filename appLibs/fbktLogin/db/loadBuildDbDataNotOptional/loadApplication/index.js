@@ -14,7 +14,12 @@ module.exports = (callInfo)=> {
 		expectedParams: {},
 		pipelineParams: {},
 		pipelineSteps:  {
-			loadApplication:	loadApplication
+			loadApplication:	callInfo => {
+        return loadApplication(callInfo)
+          .then(result => {
+            fbkt().clog('LOADED APPLICATION', result, true);
+          });
+      }
 		}
 	}, callInfo || {});
 };
