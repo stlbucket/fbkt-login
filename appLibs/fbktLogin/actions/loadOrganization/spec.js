@@ -6,7 +6,7 @@ const fbkt   = require('fbkt');
 
 const pipeDef = require('./index');
 
-describe.only(__filename, function () {
+describe.skip(__filename, function () {
 
   it('load an organization', function (done) {
     const testId = uuid.v4();

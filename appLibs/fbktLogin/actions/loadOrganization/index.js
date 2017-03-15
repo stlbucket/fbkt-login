@@ -62,25 +62,33 @@ module.exports = callInfo => {
         }
       },
       'returnGraph': callInfo => {
-        // fbkt().clog('DB CONTACT', callInfo, true);
-        // return graphql(fbkt().graphqlSchema, graphQlQuery);
-        console.log(fbkt);
-        return fbkt.queryGraphql(graphQlQuery);
+        const graphQlQuery = `
+query {
+  organization(id: ${callInfo.params.dbOrganization.id}) {
+    name,
+    contacts {
+      id,
+      email,
+      licenses {
+        licenseType {
+          licenseTypeKey
+        }
+      }
+      location {
+        name,
+        geoJson {
+          coordinates
+        }
+      }
+    }
+  }
+}
+`;
 
+        return fbkt.queryGraphql(graphQlQuery);
       }
     }
   }, callInfo);
 };
 
 
-const graphQlQuery = `
-query {
-  organization(id: 1) {
-    name,
-    contacts {
-      id,
-      email
-    }
-  }
-}
-`;

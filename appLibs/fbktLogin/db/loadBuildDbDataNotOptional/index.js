@@ -53,10 +53,12 @@ module.exports = (callInfo)=> {
       },
 			'loadApplication':	callInfo => {
         return loadApplication({
-          params: {
-            application:  callInfo.params.application
-          }
-        });
+          params: callInfo.params.application
+        })
+          .then(result => {
+            fbkt().clog('APPLICATION', result, true);
+            process.exit();
+          });
       },
 			'loadOrganizationsAndUsers': callInfo => {
         return loadOrganizationsAndUsers({

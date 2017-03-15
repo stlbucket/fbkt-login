@@ -63,30 +63,10 @@ module.exports = callInfo => {
           );
         }
       },
-      'returnComposite': callInfo => {
-        // fbkt().clog('DB CONTACT', callInfo, true);
-        return graphql(fbkt().graphqlSchema, graphQlQuery);
-
-      }
-      // 'returnComposite': callInfo => {
-      //   // fbkt().clog('DB CONTACT', callInfo, true);
-      //   return fbkt().dbTree.fbkt_login.composite.contact.findOne({
-      //     params: {
-      //       id: callInfo.params.dbContact.id
-      //     }
-      //   })
-      //     .then(composite => {
-      //       // fbkt().clog('COMPOSITE', callInfo, true);
-      //       // process.exit();
-      //     })
-      // }
-    }
-  }, callInfo);
-};
-
-const graphQlQuery = `
+      'queryGraphql': callInfo => {
+        const graphQlQuery = `
 query {
-  contact(id: 2){
+  contact(id: ${callInfo.params.dbContact.id}){
     id,
     email,
     location {
@@ -104,3 +84,9 @@ query {
     }
   }
 }`;
+        return fbkt.queryGraphql(graphQlQuery);
+      }
+    }
+  }, callInfo);
+};
+

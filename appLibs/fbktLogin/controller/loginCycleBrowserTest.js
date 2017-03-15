@@ -74,15 +74,6 @@ var methods = {
 			}
 		});
 	},
-	organizationComposite: function(id){
-		$.ajax({
-			url: 'http://localhost:20831/FbktLogin/OrganizationComposite/1',
-			type: 'get',
-			beforeSend:      function(xhr){
-				xhr.setRequestHeader ("Authorization", token);
-			}
-		});
-	}
 };
 
 var loginFail = function(){

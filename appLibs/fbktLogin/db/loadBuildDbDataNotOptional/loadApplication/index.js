@@ -3,7 +3,9 @@ const R = require('ramda');
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 
-const applicationCompositeLoader = require('./loader');
+// const applicationCompositeLoader = require('./loader');
+
+const loadApplication = require('../../../actions/loadApplication');
 
 module.exports = (callInfo)=> {
 	return fbkt().FbktPipe({
@@ -12,7 +14,7 @@ module.exports = (callInfo)=> {
 		expectedParams: {},
 		pipelineParams: {},
 		pipelineSteps:  {
-			applicationCompositeLoader:	applicationCompositeLoader
+			loadApplication:	loadApplication
 		}
 	}, callInfo || {});
 };

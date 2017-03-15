@@ -3,7 +3,7 @@ const R = require('ramda');
 const Promise = require('bluebird');
 const fbkt = require('fbkt');
 
-const loadOrganization = require('./loadOrganization');
+const loadOrganization = require('../../../actions/loadOrganization');
 
 module.exports = (callInfo)=> {
 	return fbkt().FbktPipe({
@@ -19,13 +19,13 @@ module.exports = (callInfo)=> {
 				return Promise.mapSeries(
           callInfo.params.organizationsAndUsers,
 					(organization)=>{
-						return loadOrganization({params:	{ organization:	organization}});
+						return loadOrganization({params:	organization});
 					}
 				);
 			},
-			// "report":	(callInfo)=>{
-			// 	fbkt().clog('LOADED ORGS', callInfo.params.loadedOrganizations, true); process.exit();
-			// }
+			"report":	(callInfo)=>{
+				fbkt().clog('LOADED ORGS', callInfo.params.loadedOrganizations, true);
+			}
 		}
 	}, callInfo || {});
 };
