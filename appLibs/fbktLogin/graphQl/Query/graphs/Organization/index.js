@@ -12,7 +12,7 @@ module.exports = new gql.GraphQLObjectType({
 	name: 'Organization',
 	fields: () => ({
 		id: {
-			type: gql.GraphQLID,
+			type: gql.GraphQLInt,
 			resolve(organization){
 				return organization.id
 			}

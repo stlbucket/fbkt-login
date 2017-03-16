@@ -86,7 +86,10 @@ query {
 }
 `;
 
-        return fbkt.queryGraphql(graphQlQuery);
+        return fbkt.queryGraphql(graphQlQuery)
+          .then(result => {
+            return result.organization[0];
+          });
       }
     }
   }, callInfo);

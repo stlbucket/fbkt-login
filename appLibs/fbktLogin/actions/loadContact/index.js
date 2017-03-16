@@ -1,9 +1,9 @@
 "use strict";
-const Promise = require('bluebird');
-const graphql = require('graphql').graphql;
-const fbkt = require('fbkt');
+const Promise      = require('bluebird');
+const graphql      = require('graphql').graphql;
+const fbkt         = require('fbkt');
 const loadLocation = require('../loadLocation');
-const loadLicense = require('../loadLicense');
+const loadLicense  = require('../loadLicense');
 
 module.exports = callInfo => {
   return fbkt().FbktPipe({
@@ -11,13 +11,45 @@ module.exports = callInfo => {
     filename: __filename,
     expectedParams: {},
     pipelineParams: {
-      dbContact:  'loadContact'
+      existing: 'findExisting',
+      useOrganizationId: 'findOrCreateOrganizationId',
+      dbContact: 'loadContact'
     },
     pipelineSteps: {
       'findExisting': callInfo => {
         return fbkt().dbTree.fbkt_login.table.contact.findOne({
-          name: callInfo.params.email
+          params: {
+            email: callInfo.params.email
+          }
         });
+      },
+      'findOrCreateOrganizationId': callInfo => {
+        if (callInfo.params.organizationId){
+          return callInfo.params.organizationId;
+        } else {
+          if (!(callInfo.params.organizationName)) { throw new Error('CANNOT LOAD CONTACT WITH OUT ORGANIZATION ID OR NAME')}
+          else {
+            return fbkt().dbTree.fbkt_login.table.organization.findOne({
+              params: {
+                name: callInfo.params.organizationName
+              }
+            })
+              .then(organization => {
+                if (organization){
+                  return organization;
+                } else {
+                  return fbkt().dbTree.fbkt_login.table.organization.save({
+                    params: {
+                      name: callInfo.params.organizationName
+                    }
+                  })
+                }
+              })
+              .then(dbOrganization => {
+                return dbOrganization.id;
+              });
+          }
+        }
       },
       'loadContact': callInfo => {
         // fbkt.clog('LOAD CONTACT', callInfo.params, true);
@@ -26,7 +58,7 @@ module.exports = callInfo => {
         } else {
           return fbkt().dbTree.fbkt_login.table.contact.save({
             params: {
-              organizationId: callInfo.params.organizationId,
+              organizationId: callInfo.params.useOrganizationId,
               firstName: callInfo.params.firstName,
               lastName: callInfo.params.lastName,
               email: callInfo.params.email,
@@ -84,7 +116,10 @@ query {
     }
   }
 }`;
-        return fbkt.queryGraphql(graphQlQuery);
+        return fbkt.queryGraphql(graphQlQuery)
+          .then(result => {
+            return result.contact[0];
+          });
       }
     }
   }, callInfo);

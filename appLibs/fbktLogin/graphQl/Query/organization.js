@@ -4,13 +4,13 @@ const Organization = require('./graphs/Organization');
 
 
 module.exports = {
-	type: Organization,
+	type: new gql.GraphQLList(Organization),
 	args: {
 		id: 				{type: gql.GraphQLInt},
 		name:				{type:	gql.GraphQLString}
 	},
 	resolve(organization, params){
-		return fbkt().dbTree.fbkt_login.table.organization.findOne({
+		return fbkt().dbTree.fbkt_login.table.organization.findAll({
 			params: params
 		});
 	}

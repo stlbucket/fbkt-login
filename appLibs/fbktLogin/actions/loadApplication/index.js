@@ -67,7 +67,11 @@ query {
 }
 `;
 
-        return fbkt.queryGraphql(graphQlQuery);
+        return fbkt.queryGraphql(graphQlQuery)
+          .then(result => {
+            return result.application[0];
+          });
+
       }
     }
   }, callInfo);
