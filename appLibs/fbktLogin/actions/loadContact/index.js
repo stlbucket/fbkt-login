@@ -24,10 +24,12 @@ module.exports = callInfo => {
         });
       },
       'findOrCreateOrganizationId': callInfo => {
-        if (callInfo.params.organizationId){
+        if (callInfo.params.existing || callInfo.params.organizationId) {
           return callInfo.params.organizationId;
         } else {
-          if (!(callInfo.params.organizationName)) { throw new Error('CANNOT LOAD CONTACT WITH OUT ORGANIZATION ID OR NAME')}
+          if (!(callInfo.params.organizationName)) {
+            throw new Error('CANNOT LOAD CONTACT WITH OUT ORGANIZATION ID OR NAME')
+          }
           else {
             return fbkt().dbTree.fbkt_login.table.organization.findOne({
               params: {
@@ -35,7 +37,7 @@ module.exports = callInfo => {
               }
             })
               .then(organization => {
-                if (organization){
+                if (organization) {
                   return organization;
                 } else {
                   return fbkt().dbTree.fbkt_login.table.organization.save({
