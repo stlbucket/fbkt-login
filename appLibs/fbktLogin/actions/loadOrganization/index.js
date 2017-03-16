@@ -65,6 +65,7 @@ module.exports = callInfo => {
         const graphQlQuery = `
 query {
   organization(id: ${callInfo.params.dbOrganization.id}) {
+    id,
     name,
     contacts {
       id,

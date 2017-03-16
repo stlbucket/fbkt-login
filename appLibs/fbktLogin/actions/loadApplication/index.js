@@ -52,6 +52,7 @@ module.exports = callInfo => {
         const graphQlQuery = `
 query {
   application {
+    id,
     name,
     version,
     licenseTypes {
